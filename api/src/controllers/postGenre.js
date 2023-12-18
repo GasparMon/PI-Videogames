@@ -11,7 +11,7 @@ const postGenre = async (req, res) => {
     const countGenre = await Genres.count();
 
     if (countGenre === 0) {
-      const { data } = await axios.get(`${URL}${apiKey}`);
+      const { data } = await axios.get(`${URL}?${apiKey}`);
 
       if (data) {
         const { results } = data;

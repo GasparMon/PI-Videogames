@@ -10,7 +10,7 @@ let GamesDB = [];
 const getGames = async (req, res) => {
   try {
     while (idPage < 10) {
-      const { data } = await axios.get(`${URL}${apiKey}&page=${idPage}`);
+      const { data } = await axios.get(`${URL}?${apiKey}&page=${idPage}`);
 
       if (data.results) {
         GamesDB.push(data.results[0]);

@@ -21,7 +21,7 @@ const getGameById = async (req, res) => {
         include: Genres,
       });
     } else {
-      const { data } = await axios.get(`${URL}/${idVideogame}${apiKey}`);
+      const { data } = await axios.get(`${URL}/${idVideogame}?${apiKey}`);
 
       if (data?.name) {
         const {
