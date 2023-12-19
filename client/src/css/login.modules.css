@@ -12,14 +12,10 @@
 .login_container {
   width: 60%;
   height: 100%;
-  background: linear-gradient(
-      to left,
-      rgba(255, 255, 255, 0.255),
-      rgba(255, 255, 255, 0.255) 100%,
-      rgba(255, 255, 255, 0.255) 100%,
-      rgba(255, 255, 255, 0.167)
-    ),
-    url(./img/login_form_bg.jpeg);
+  background:
+    url(./img/back_g1.jpeg);
+    background-size: cover;
+  background-repeat: repeat-x;
 }
 
 .main_title_container {
@@ -33,74 +29,87 @@
 .main_title_container div {
   background: linear-gradient(
     80deg,
-    rgba(35, 31, 247, 0.855) 10%,
-    rgba(255, 20, 145, 0.847) 50%,
-    rgba(255, 200, 20, 0.852) 100%
+    rgba(37, 113, 145, 0.920) 10%,
+    rgba(63,127,109, 0.920) 50%,
+    rgba(58,190,194, 0.920) 100%
   );
-  width: 70%;
+  width: 80%;
   height: 50%;
   padding: 1rem;
   border-radius: 1rem;
-  border: .7vmin solid #343399;
-  box-shadow: 0.6rem 0.6rem #191849a2;
+  border: 1vmin solid #f7a204;
+  box-shadow: 0.8rem 0.8rem #000000a2;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .main_title_container h1 {
-  font-size: 90px;
+  font-size: 70px;
   color: #0b0b0b;
  text-shadow: 2px 2px #ffffff;
  font-family: "Cabin Sketch", sans-serif;
 }
 
-.form_container {
+.log_container {
   width: 100%;
   height: 70%;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .login{
   width: 60%;
-  height: 90%;
+  height: 80%;
   background: linear-gradient(
     180deg,
-    rgba(33, 31, 159, 0.93) 10%,
-    rgba(181, 20, 106, 0.922) 50%,
-    rgba(191, 150, 16, 0.852) 100%
+    rgba(37, 113, 145, 0.920) 10%,
+    rgba(63,127,109, 0.920) 50%,
+    rgba(58,190,194, 0.920) 100%
   );
   padding: 1rem;
   border-radius: 1rem;
-  border: .7vmin solid #4240ba;
-  box-shadow: 0.7rem 0.7rem #191849a2;
+  border: 1vmin solid #f7a204;
+  box-shadow: 0.9rem 0.9rem #000000a2;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .login_title{
   width: 100%;
-  height: 20%;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.152);
-  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.339);
+  border-radius: 20px;
 }
 
 .login_title h1{
-  font-size: 70px;
+  font-size: 50px;
   color: white;
   text-shadow: 2px 2px #000000;
 }
 
 .login_title span{
-  font-size: 60px;
+  font-size: 50px;
   color: #ffffff;
   text-shadow: 2px 2px #000000;
   position: relative;
@@ -111,7 +120,7 @@
 .img_container {
   width: 40%;
   height: 100%;
-  background-image: url(./img/login_bg_.jpg);
+  background-image: url(./img/back_g3.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -127,6 +136,8 @@
   width: 100%;
   height: 25%;
   position: relative;
+  justify-content: center;
+
 }
 
 .input_mail input{
@@ -165,6 +176,7 @@
 .input_password {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   line-height: 30px;
   align-items: center;
   position: relative;
@@ -213,9 +225,9 @@
   align-items: center;
   position: relative;
   width: 60%;
-  height: 30%;
+  height: 40%;
   position: relative;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .log_buttons {
@@ -230,6 +242,7 @@
   cursor: pointer;
   width: 250px;
   font-family: "Rubik";
+  transition: background 0.3s ease;
 }
 
 .sign_buttons {
@@ -244,6 +257,7 @@
   cursor: pointer;
   width: 130px;
   font-family: "Rubik";
+  transition: background 0.3s ease;
 }
 
 .log_buttons:hover {
