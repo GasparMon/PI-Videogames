@@ -1,0 +1,414 @@
+.forms_container{
+    height: 750px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.game_form{
+    width: 90%;
+    height: 98%;
+    background: linear-gradient(
+      180deg,
+      rgba(37, 113, 145, 0.920) 10%,
+      rgba(63,127,109, 0.920) 50%,
+      rgba(58,190,194, 0.920) 100%
+    );
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1vmin solid #f7a204;
+    box-shadow: 0.9rem 0.9rem #000000a2;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.form_title{
+    height: 10%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.19);
+    border-radius: 40px;
+}
+
+.form_title h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+  }
+
+  .form_info{
+    height: 85%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+  }
+
+  .form_info_left{
+    height: 98%;
+    width: 50%;
+    border: 4px solid rgb(17, 255, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .form_info_right{
+    height: 98%;
+    width: 50%;
+    border: 4px solid rgb(225, 255, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .game_title{
+    height: 12%;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .game_span{
+    height: 98%;
+    width: 15%;
+    border: 4px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .game_span span{
+    font-size: 70px;
+    font-weight: 500;
+
+  }
+
+  .game_title_input{
+    height: 98%;
+    width: 85%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:flex-start;
+  }
+
+  .game_title_input input {
+    width: 80%;
+    height: 40px;
+    line-height: 30px;
+    padding-left: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background-color: #ffffff9f;
+    color: #0d0c22;
+    transition: 0.5s ease;
+    padding-right: 10px;
+    font-size: 20px;
+  }
+  
+  .game_title_input input::placeholder {
+    color: #5e5e9a;
+    font-size: 20px;
+  }
+  .input:focus,
+  input:hover {
+    outline: none;
+    border-color: rgb(57, 59, 166);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
+  }
+  
+
+  .game_description{
+    height: 60%;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .game_description textarea {
+    width: 80%;
+    height: 250px;
+    line-height: 30px;
+    padding-left: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background-color: #ffffff9f;
+    color: #0d0c22;
+    transition: 0.5s ease;
+    padding-right: 10px;
+    font-size: 20px;
+    font-family: "Rubik";
+  }
+
+  .game_description textarea::placeholder {
+    color: #5e5e9a;
+    font-size: 20px;
+    font-family: "Rubik";
+    font-weight: lighter;
+  }
+  .game_description:focus,
+  textarea:hover {
+    outline: none;
+    border-color: rgb(57, 59, 166);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
+  }
+
+  .game_data{
+    height: 20%;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .game_date{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .date_form{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .date_form label{
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.247);
+    border-radius: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-shadow: 2px 2px #000000;
+  }
+  
+  .date_form input {
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background-color: #ffffff9f;
+    color: #0d0c22;
+    transition: 0.5s ease;
+    padding-right: 10px;
+    font-size: 20px;
+    font-family: "Rubik";
+  }
+  
+  .date_form input::placeholder {
+    color: #5e5e9a;
+    font-size: 20px;
+  }
+  .date_form:focus,
+  input:hover {
+    outline: none;
+    border-color: rgb(57, 59, 166);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
+  }
+
+  .game_rating{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .rating_form{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .rating_form label{
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.247);
+    border-radius: 40px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-shadow: 2px 2px #000000;
+  }
+
+  .rating_form select {
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background-color: #ffffff9f;
+    color: #0d0c22;
+    transition: 0.5s ease;
+    padding-right: 10px;
+    font-size: 20px;
+    font-family: "Rubik";
+  }
+
+  .rating_form:focus,
+  select:hover {
+    outline: none;
+    border-color: rgb(57, 59, 166);
+    background-color: #fff;
+    box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
+  }
+  
+  .form_genres{
+    height: 70%;
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 4px solid red;
+  }
+
+  .game_span_right{
+    height: 98%;
+    width: 10%;
+    border: 4px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .game_span_right span{
+    font-size: 70px;
+    font-weight: 500;
+
+  }
+
+  .check_genres {
+    height: 98%;
+    width: 85%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+    border-radius: 20px;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .check_genres input {
+    width: 100%;
+    background-color: #f0ff232d; /* Aplicar un fondo a cada elemento en lugar del contenedor */
+    border: none; /* Eliminar los bordes de los elementos si es necesario */
+    border-radius: 10px; /* Agregar bordes redondeados si es necesario */
+    padding: 10px; /* Agregar relleno para mejorar la apariencia */
+    box-sizing: border-box; /* Incluir el relleno en el tamaño total del elemento */
+    text-align: center; /* Centrar el texto dentro del elemento */
+  }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .form_buttons{
+    height: 10%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+  }
+
+  .create_buttons {
+    font-size: 1.3rem;
+    color: #fafafa;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #fafafa;
+    background: #2e6f8e;
+    box-shadow: 3px 3px #fafafa;
+    cursor: pointer;
+    width: 350px;
+    font-family: "Rubik";
+    transition: background 0.3s ease;
+  }
+  
+  .restart_buttons{
+    font-size: 1.3rem;
+    color: #fafafa;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #fafafa;
+    background: #f62a72;
+    box-shadow: 3px 3px #fafafa;
+    cursor: pointer;
+    width: 130px;
+    font-family: "Rubik";
+    transition: background 0.3s ease;
+  }
+  
+  .create_buttons:hover {
+    background:#269839;
+  }
+  .restart_buttons:hover {
+    background: #e21a00;
+  }
+  
+  .create_buttons:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    background:#269839;
+  }
+  
+  .restart_buttons:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    background: #e21a00;
+  }

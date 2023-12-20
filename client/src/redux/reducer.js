@@ -1,4 +1,4 @@
-import { GETUSER } from "./types";
+import { CLEANUSER, GETUSER } from "./types";
 
 const initialState = {
   userData: {
@@ -18,7 +18,17 @@ export default function reducer(state = initialState, action) {
           avatar: action.payload.avatar,
         },
       };
+    case CLEANUSER:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          username: "",
+          avatar: "",
+        },
+      };
     default:
       return state;
   }
 }
+

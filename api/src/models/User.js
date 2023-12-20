@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
       autoIncrement: true,
       unique: true,
     },
-    name: {
+    username: {
       type: DataTypes.STRING(25),
       allowNull: false,
       unique: true,
@@ -26,22 +26,18 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        is: [
-          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$",
-        ],
+        is: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]+$/,
         len: [8, 18],
       },
     },
     avatar:{
         type: DataTypes.ENUM(
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8"
+            "a1",
+            "a2",
+            "a3",
+            "a4",
+            "a5",
+            "a6"
         ),
         allowNull:false,
     }

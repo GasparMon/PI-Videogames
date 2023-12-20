@@ -7,6 +7,7 @@ import Home from './components/Home';
 import NavBar from './components/NavBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from './redux/actions';
+import Form from './components/Form';
 
 
 
@@ -30,8 +31,8 @@ function App() {
       const{data} = response
     
       if (data.user) {
-        const{avatar, username} = data;
-        console.log(data)
+        const{user} = data
+        const{username, avatar} = user
         dispatch(getUser({username, avatar}))
         setAccess(true);
         navigate("/home");
@@ -51,6 +52,7 @@ function App() {
         <Route path="/" element={<Login logIn = {logIn}/>} />
         <Route path="/submit" element = {<Submit/>}/>
         <Route path="/home" element={<Home/>}/>
+        <Route path="/form" element={<Form/>}/>
       </Routes>
     </div>
   );

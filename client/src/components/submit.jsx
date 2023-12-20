@@ -94,7 +94,7 @@ export default function Submit(props) {
                       type="radio"
                       name="avatar"
                       onClick={handleChange}
-                      value="1"
+                      value="a1"
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
@@ -111,7 +111,7 @@ export default function Submit(props) {
                       type="radio"
                       name="avatar"
                       onClick={handleChange}
-                      value="2"
+                      value="a2"
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
@@ -128,7 +128,7 @@ export default function Submit(props) {
                       type="radio"
                       name="avatar"
                       onClick={handleChange}
-                      value="3"
+                      value="a3"
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
@@ -145,7 +145,7 @@ export default function Submit(props) {
                       type="radio"
                       name="avatar"
                       onClick={handleChange}
-                      value="4"
+                      value="a4"
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
@@ -162,7 +162,7 @@ export default function Submit(props) {
                       type="radio"
                       name="avatar"
                       onClick={handleChange}
-                      value="5"
+                      value="a5"
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
@@ -179,7 +179,7 @@ export default function Submit(props) {
                       type="radio"
                       name="avatar"
                       onClick={handleChange}
-                      value="6"
+                      value="a6"
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
