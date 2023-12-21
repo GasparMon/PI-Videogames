@@ -1,0 +1,248 @@
+.detail_container {
+    height: 780px;
+    width: 98%;
+    margin: 0 0 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+    overflow: auto;
+      display: flex;
+    flex-direction: row;
+  
+  
+    background: linear-gradient(
+        180deg,
+        rgba(76, 76, 76, 0.292) 10%,
+        rgba(121, 121, 121, 0.292) 50%,
+        rgba(115, 115, 115, 0.292) 100%
+        
+      );
+      animation: fadeIn 1s ease forwards;
+  
+    border-radius: 20px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .game_detail{
+    width: 97%;
+    height: 93%;
+    border: 4px solid black;
+    background: linear-gradient(
+      80deg,
+      rgba(0, 36, 54, 0.92) 10%,
+      rgba(1, 75, 54, 0.92) 50%,
+      rgba(0, 36, 54, 0.92) 100%
+    );
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 0.7vmin solid #006e7e;
+    box-shadow: 0.8rem 0.8rem #000000a2;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+    transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    animation: fadeIn .8s ease forwards;
+
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .detail_left{
+  
+    height: 100%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .detail_title{
+    height: 13%;
+    width: 70%;
+    padding: 0 50px 0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    box-shadow: 0 0 7px rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.128);
+  }
+
+  .detail_title h1{
+    font-size: 40px;
+    margin: 0;
+    text-shadow: 2px 2px #000000;
+  }
+
+  .detail_img{
+  
+    height: 45%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    box-shadow: 0 0 1px rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.128);
+  }
+
+  .detail_img img{
+        object-fit: cover; 
+        width: 100%; 
+        height: 100%;
+        box-shadow: 0 0 40px rgb(255, 255, 255);
+        border-radius: 10px;
+
+  }
+
+  .details_{
+   
+    height: 15%;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: auto;
+      display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.215);
+  }
+  .details_ div{
+    width: 30%;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    background-color: #ffffff54;
+    color: #f7a204;
+    box-shadow: 0 0 7px rgb(255, 255, 255);
+  }
+
+  .details_ label{
+    font-size: 20px;
+    text-shadow: 2px 2px #000000;
+  }
+
+  .detail_rating{
+    height: 10%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, 0.215);
+    border-radius: 20px;
+    
+  }
+
+  .rating{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .rating span{
+    font-size: 90px;
+  }
+
+  .rating h1{
+    font-size: 50px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .detail_right{
+
+    height: 100%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .detail_description{
+  
+    height: 55%;
+    width: 95%;
+    display: flex;
+
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.56);
+    padding: 5px;
+
+    display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: auto;
+    display: flex;
+  flex-direction: row;
+  }
+
+  .detail_description h4{
+    font-weight: 100;
+  }
+
+  .detail_date{
+    height: 10%;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: auto;
+      display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.215);
+  }
+
+  .back_button span{
+    font-size: 50px;
+    cursor: pointer;
+  }

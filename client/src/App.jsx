@@ -3,11 +3,12 @@ import axios from "axios";
 import Login from './components/Login';
 import { useEffect, useState } from 'react';
 import Submit from './components/submit';
-import Home from './components/Home';
 import NavBar from './components/NavBar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from './redux/actions';
 import Form from './components/Form';
+import Cards from './components/Cards';
+import Detail from './components/Detail';
 
 
 
@@ -51,8 +52,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Login logIn = {logIn}/>} />
         <Route path="/submit" element = {<Submit/>}/>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/home" element={<Cards/>}/>
         <Route path="/form" element={<Form/>}/>
+        <Route path="/detail/:id" element={<Detail/>}/>
       </Routes>
     </div>
   );

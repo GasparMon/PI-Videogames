@@ -1,4 +1,4 @@
-import { CLEANUSER, GETUSER } from "./types";
+import { CLEANUSER, GETUSER, GETVIDEOGAMES } from "./types";
 
 export function getUser(userData){
     return{
@@ -11,5 +11,13 @@ export function cleanUser(){
 
     return{
         type: CLEANUSER
+    }
+}
+
+export function getVideogames(gameData){
+
+    return{
+        type: GETVIDEOGAMES,
+        payload: gameData,
     }
 }

@@ -15,8 +15,9 @@ export default function NavBar(props) {
     <div className="navbar_container">
       <div className="nav_container">
         <div className="nav_profile">
-          
-          <div className={userData.avatar}></div>
+          <Link to="/home" id="Link">
+          <button className={userData.avatar}></button>
+          </Link>
           <div className="username">
             <h2>{userData.username}</h2>
           </div>

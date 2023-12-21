@@ -29,60 +29,81 @@
   justify-content: space-evenly;
 }
 
+#Link{
+  height: 95%;
+  width: 100px;
+}
+
 .a1 {
-  height: 90%;
+  height: 95%;
   width: 90px;
   border-radius: 10px;
   background-image: url(./img/av_01.png);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.991);
+  border: none;
+  cursor: pointer;
 }
 .a2 {
-  height: 90%;
+  height: 95%;
   width: 90px;
   border-radius: 10px;
   background-image: url(./img/av_02.png);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.991);
+  border: none;
+  cursor: pointer;
 }
 .a3 {
-  height: 90%;
+  height: 95%;
   width: 90px;
   border-radius: 10px;
   background-image: url(./img/av_03.png);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.991);
+  border: none;
+  cursor: pointer;
 }
 .a4 {
-  height: 90%;
+  height: 95%;
   width: 90px;
   border-radius: 10px;
   background-image: url(./img/av_04.png);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.991);
+  border: none;
+  cursor: pointer;
 }
 
 .a5 {
-  height: 90%;
+  height: 95%;
   width: 90px;
   border-radius: 10px;
   background-image: url(./img/av_05.png);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.991);
+  border: none;
+  cursor: pointer;
 }
 .a6 {
-  height: 90%;
+  height: 95%;
   width: 90px;
   border-radius: 10px;
   background-image: url(./img/av_06.png);
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.991);
+  border: none;
+  cursor: pointer;
+}
+
+.nav_profile button:active{
+  transform: translate(1px, 1px);
 }
 
 .pic_profile {

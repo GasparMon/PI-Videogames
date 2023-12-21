@@ -1,5 +1,101 @@
+import { useState } from "react";
 import "../css/form.modules.css";
+import createGame from "../Handlers/createGame";
+
 export default function Form() {
+  const [newVideogame, SetNewVideogame] = useState({
+    name: "",
+    description: "",
+    platforms: [],
+    background_image: "",
+    genres: [],
+    released: new Date(),
+    rating: null,
+  });
+
+  const handleChange = (event) => {
+    let { name, value } = event.target;
+
+    if (name === "rating") {
+      value = Number(value);
+    }
+
+    SetNewVideogame({
+      ...newVideogame,
+      [name]: value,
+    });
+  };
+
+  const handleCheckForm = (event) => {
+    let { name, value } = event.target;
+
+    if (name === "genres") {
+      value = Number(value);
+    }
+
+    if (newVideogame[name].includes(value)) {
+      const filtered = newVideogame[name].filter(
+        (element) => element !== value
+      );
+
+      SetNewVideogame({
+        ...newVideogame,
+        [name]: filtered,
+      });
+    } else {
+      SetNewVideogame({
+        ...newVideogame,
+        [name]: [...newVideogame[name], value],
+      });
+    }
+  };
+
+  const handleFile = (event) => {
+    const created = event.target.files[0].lastModified;
+    const fileName = event.target.files[0].name;
+    const fileExtension = fileName.split(".").pop();
+
+    const newFileName = `${created}.${fileExtension}`;
+
+    SetNewVideogame({
+      ...newVideogame,
+      background_image: newFileName,
+    });
+  };
+
+  const handleRestart = () => {
+    SetNewVideogame({
+      ...newVideogame,
+      name: "",
+      description: "",
+      platforms: [],
+      background_image: "",
+      genres: [],
+      released: new Date(),
+      rating: null,
+    });
+  };
+
+  const handleCreate = async (event) => {
+    event.preventDefault();
+
+    const isGameCreated = await createGame(newVideogame);
+    
+
+    if(isGameCreated){
+      SetNewVideogame({
+        ...newVideogame,
+        name: "",
+        description: "",
+        platforms: [],
+        background_image: "",
+        genres: [],
+        released: new Date(),
+        rating: "",
+      });
+    }
+  };
+
   return (
     <div className="forms_container">
       <div className="game_form">
@@ -9,29 +105,40 @@ export default function Form() {
 
         <div className="form_info">
           <div className="form_info_left">
+            <label className="rigth_form_label" for="imageUpload">
+              {" "}
+              Videogame Title
+            </label>
             <div className="game_title">
               <div className="game_span">
                 <span class="material-symbols-outlined">stylus_note</span>
               </div>
               <div className="game_title_input">
                 <input
-                  type="email"
-                  name="email"
+                  type="text"
+                  name="name"
+                  onChange={handleChange}
+                  value={newVideogame.name}
                   placeholder="Enter your videogame Title"
                 />
               </div>
             </div>
-
+            <label className="rigth_form_label" for="imageUpload">
+              {" "}
+              Videogame Description
+            </label>
             <div className="game_description">
               <div className="game_span">
                 <span class="material-symbols-outlined">description</span>
               </div>
               <div className="game_title_input">
                 <textarea
-                  name="gameDescription"
                   rows="18"
                   cols="60"
                   placeholder="Enter your videogame description"
+                  name="description"
+                  onChange={handleChange}
+                  value={newVideogame.description}
                 ></textarea>
               </div>
             </div>
@@ -45,8 +152,9 @@ export default function Form() {
                   <label for="Released Date">Released Date</label>
                   <input
                     type="date"
-                    id="fechaNacimiento"
-                    name="fechaNacimiento"
+                    name="released"
+                    onChange={handleChange}
+                    value={newVideogame.released}
                   />
                 </div>
               </div>
@@ -57,7 +165,12 @@ export default function Form() {
                 </div>
                 <div className="rating_form">
                   <label for="Rating">Rating</label>
-                  <select id="Rating" name="Rating">
+                  <select
+                    id="rating"
+                    name="rating"
+                    value={newVideogame.rating}
+                    onChange={handleChange}
+                  >
                     <option value="1">Rating: 1</option>
                     <option value="1.5">Rating: 1.5</option>
                     <option value="2">Rating: 2</option>
@@ -74,42 +187,109 @@ export default function Form() {
           </div>
 
           <div className="form_info_right">
-
+            <label className="rigth_form_label" for="imageUpload">
+              Videogame Genres
+            </label>
             <div className="form_genres">
-            <div className="game_span_right">
+              <div className="game_span_right">
                 <span class="material-symbols-outlined">Gamepad</span>
               </div>
               <div className="check_genres">
-                <label>Videogame Genre</label>
-                <input type="checkbox" id="action" value="Action" /> <label for="action">Action</label>
-<input type="checkbox" id="indie" value="Indie" /> <label for="indie">Indie</label>
-<input type="checkbox" id="shooter" value="Shooter" /> <label for="shooter">Shooter</label>
-<input type="checkbox" id="casual" value="Casual" /> <label for="casual">Casual</label>
-<input type="checkbox" id="arcade" value="Arcade" /> <label for="arcade">Arcade</label>
-<input type="checkbox" id="massively-multiplayer" value="Massively Multiplayer" /> <label for="massively-multiplayer">Massively Multiplayer</label>
-<input type="checkbox" id="fighting" value="Fighting" /> <label for="fighting">Fighting</label>
-<input type="checkbox" id="card" value="Card" /> <label for="card">Card</label>
-<input type="checkbox" id="adventure" value="Adventure" /> <label for="adventure">Adventure</label>
-<input type="checkbox" id="simulation" value="Simulation" /> <label for="simulation">Simulation</label>
-<input type="checkbox" id="sports" value="Sports" /> <label for="sports">Sports</label>
-<input type="checkbox" id="educational" value="Educational" /> <label for="educational">Educational</label>
-<input type="checkbox" id="strategy" value="Strategy" /> <label for="strategy">Strategy</label>
-<input type="checkbox" id="platformer" value="Platformer" /> <label for="platformer">Platformer</label>
-<input type="checkbox" id="board-games" value="Board Games" /> <label for="board-games">Board Games</label>
-<input type="checkbox" id="rpg" value="RPG" /> <label for="rpg">RPG</label>
-<input type="checkbox" id="puzzle" value="Puzzle" /> <label for="puzzle">Puzzle</label>
-<input type="checkbox" id="racing" value="Racing" /> <label for="racing">Racing</label>
-<input type="checkbox" id="family" value="Family" /> <label for="family">Family</label>
-
+                {[
+                  "Action",
+                  "Indie",
+                  "RPG",
+                  "Adventure",
+                  "Strategy",
+                  "Shooter",
+                  "Casual",
+                  "Puzzle",
+                  "Simulation",
+                  "Arcade",
+                  "Platformer",
+                  "Racing",
+                  "Sports",
+                  "Massively Multiplayer",
+                  "Fighting",
+                  "Family",
+                  "Board Games",
+                  "Educational",
+                  "Card",
+                ].map((genre, index) => (
+                  <div key={genre}>
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        className="checkbox"
+                        name="genres"
+                        value={index + 1}
+                        onChange={handleCheckForm}
+                      />
+                      {genre}
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
-            
+            <label className="rigth_form_label" for="imageUpload">
+              Videogame Platforms
+            </label>
+            <div className="form_platforms">
+              <div className="game_span_right">
+                <span class="material-symbols-outlined">stadia_controller</span>
+              </div>
+              <div className="check_platform">
+                {[
+                  "PlayStation 5",
+                  "PlayStation 4",
+                  "Xbox Series X/S",
+                  "Xbox One",
+                  "Nintendo Switch",
+                  "PC",
+                ].map((platform) => (
+                  <div key={platform}>
+                    <label className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        className="checkbox"
+                        name="platforms"
+                        value={platform}
+                        onChange={handleCheckForm}
+                      />
+                      {platform}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="vid_img">
+              <form>
+                <label className="rigth_form_label" for="imageUpload">
+                  Videogame image
+                </label>
+                <input
+                  className="input_img"
+                  type="file"
+                  name="background_image"
+                  accept="image/*"
+                  onChange={handleFile}
+                />
+                <button className="img_button" type="submit">
+                  Upload Image
+                </button>
+              </form>
+            </div>
           </div>
         </div>
 
         <div className="form_buttons">
-          <button className="create_buttons">Create Videogame</button>
-          <button className="restart_buttons">Restart</button>
+
+          <button className="restart_buttons" onClick={handleRestart}>
+            Restart
+          </button>
+          <button className="create_buttons" onClick={handleCreate}>
+            Create Videogame
+          </button>
         </div>
       </div>
     </div>
