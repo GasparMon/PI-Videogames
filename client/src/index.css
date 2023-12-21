@@ -19,8 +19,10 @@ body {
       rgb(255, 255, 255, 0.19) 100%,
       rgb(255, 255, 255, 0.19)
     ),
-    url(./img/hm_bg2.png) repeat;
-    font-family: "Rubik";
+    url(./img/rep123.png) repeat;
+  font-family: "Rubik";
 
-  
+  /* Añade estas propiedades para ajustar la imagen al tamaño del div */
+  background-size: cover;
+  background-position: center;
 }

@@ -1,4 +1,4 @@
-import { CLEANUSER, GETUSER, GETVIDEOGAMES } from "./types";
+import { CLEANUSER, FILTERGENRE, FILTERORIGIN, GETGAMEBYNAME, GETUSER, GETVIDEOGAMES, ORDERNAME, ORDERRATING } from "./types";
 
 export function getUser(userData){
     return{
@@ -19,5 +19,46 @@ export function getVideogames(gameData){
     return{
         type: GETVIDEOGAMES,
         payload: gameData,
+    }
+}
+
+export function gamebyName(name){
+
+    return{
+
+        type: GETGAMEBYNAME,
+        payload: name,
+    }
+}
+
+export function orderName(order){
+
+    return{
+        type: ORDERNAME,
+        payload: order,
+    }
+}
+
+export function orderRating(order){
+
+    return{
+        type: ORDERRATING,
+        payload: order,
+    }
+}
+
+export function filterGenre(genre){
+
+    return{
+        type: FILTERGENRE,
+        payload: genre,
+    }
+}
+
+export function filterOrigin(origin){
+
+    return{
+        type: FILTERORIGIN,
+        payload: origin,
     }
 }

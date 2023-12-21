@@ -9,6 +9,7 @@ import { getUser } from './redux/actions';
 import Form from './components/Form';
 import Cards from './components/Cards';
 import Detail from './components/Detail';
+import Search from './components/Search';
 
 
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/home" element={<Cards/>}/>
         <Route path="/form" element={<Form/>}/>
         <Route path="/detail/:id" element={<Detail/>}/>
+        <Route path="/search" element={<Search/>}/>
       </Routes>
     </div>
   );
