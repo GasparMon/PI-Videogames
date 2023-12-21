@@ -1,7 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import "../css/navbar.modules.css";
 import { Link, useNavigate } from "react-router-dom";
-import { cleanUser, filterGenre, filterOrigin, gamebyName, orderName, orderRating } from "../redux/actions";
+import {
+  cleanUser,
+  filterGenre,
+  filterOrigin,
+  gamebyName,
+  orderName,
+  orderRating,
+} from "../redux/actions";
 import { useState } from "react";
 import getGameByName from "../Handlers/getGamebyName";
 
@@ -47,35 +54,29 @@ export default function NavBar(props) {
     }
   };
 
-  const handleOrderName=(event)=>{
+  const handleOrderName = (event) => {
+    const { value } = event.target;
 
-    const{value} = event.target;
-  
-     dispatch(orderName(value))
-  }
+    dispatch(orderName(value));
+  };
 
-  const handleOrderRating=(event)=>{
+  const handleOrderRating = (event) => {
+    const { value } = event.target;
 
-    const{value} = event.target;
+    dispatch(orderRating(value));
+  };
 
-     dispatch(orderRating(value))
-  }
+  const handleOrigin = (event) => {
+    const { value } = event.target;
 
-  const handleOrigin=(event)=>{
+    dispatch(filterOrigin(value));
+  };
 
-    const{value} = event.target;
+  const handleGenre = (event) => {
+    const { value } = event.target;
 
-     dispatch(filterOrigin(value))
-  }
-
-  const handleGenre=(event)=> {
-
-    const {value} = event.target;
-  
-    dispatch(filterGenre(value))
-
-  }
-
+    dispatch(filterGenre(value));
+  };
 
   const genres = [
     "Action",
@@ -140,38 +141,67 @@ export default function NavBar(props) {
           </Link>
         </div>
       </div>
-
       <div className="filter_container">
-        <button value="Ascendent" onClick={handleOrderName} >NAME-ASC</button>
+        <div className="button_container">
+          <button
+            className="button_filter"
+            value="Ascendent"
+            onClick={handleOrderName}
+          >
+            {" "}
+            ↑ Order Name{" "}
+          </button>
 
-        <button value="Descendent" onClick={handleOrderName}>NAME-DES</button>
+          <button
+            className="button_filter"
+            value="Descendent"
+            onClick={handleOrderName}
+          >
+            Order Name ↓
+          </button>
+        </div>
+        <div className="button_container">
+          <button
+            className="button_filter"
+            value="Descendent"
+            onClick={handleOrderRating}
+          >
+            ↑ Order Rating
+          </button>
 
-        <button value="Descendent" onClick={handleOrderRating} >MAS-RT</button>
+          <button
+            className="button_filter"
+            value="Ascendent"
+            onClick={handleOrderRating}
+          >
+            Order Rating ↓
+          </button>
+        </div>
 
-        <button value="Ascendent" onClick={handleOrderRating}>LESS-RT</button>
+        <div className="button_container">
+          <button className="button_filter" value="API" onClick={handleOrigin}>
+            App Games
+          </button>
 
+          <button className="button_filter" value="DB" onClick={handleOrigin}>
+            Local Games
+          </button>
+        </div>
 
-
-        <button value="All" onClick={handleOrigin} >All</button>
-
-        <button value="API" onClick={handleOrigin} >API</button>
-
-        <button value="DB" onClick={handleOrigin}>DB</button>
-
-        <select
-      id="rating"
-      name="rating"
-      onChange={handleGenre}
-    >
-      <option  value="All" >All</option>
-      {genres.map((genre, index) => (
-        <option key={index} value={genre}>
-          {genre}
-        </option>
-      ))}
-    </select>
-
-
+        <select id="rating" name="rating" onChange={handleGenre}>
+          <option disabled selected value="">
+            Select Genre
+          </option>
+          <option value="All">All</option>
+          {genres.map((genre, index) => (
+            <option key={index} value={genre}>
+              {genre}
+            </option>
+          ))}
+        </select>
+        <button className="button_all" value="All" onClick={handleOrigin}>
+          All
+        </button>
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ export default function Submit(props) {
           <div className="submit">
             <div className="submit_title">
               <h1>Submit</h1>
-              <span className="material-symbols-outlined">loyalty</span>
+          
             </div>
             <div className="submit_user">
               <h1>Username </h1>

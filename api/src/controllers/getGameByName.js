@@ -1,6 +1,7 @@
 const { Op } = require("sequelize");
-const { Videogame } = require("../db");
+const { Videogame, Genres } = require("../db");
 const { default: axios } = require("axios");
+const { raw } = require("body-parser");
 require("dotenv").config();
 
 const apiKey = process.env.API_KEY;
@@ -14,56 +15,60 @@ const getGameByName = async (req, res) => {
       where: {
         name: { [Op.iLike]: `%${name}%` },
       },
+      include: Genres,
     });
+    
 
     if (filteredGames.count < 15) {
-      let apiCount = 15 - filteredGames.count;
+
 
       const { data } = await axios.get(`${URL}${name}&${apiKey}`);
 
       if (data?.results) {
         const { results } = data;
-
-
+      
         filteredGames.rows = filteredGames.rows.concat(
-          results
-            .slice(0, apiCount)
-            .map(
-              ({
-                id,
-                name,
-                description,
-                platforms,
-                background_image,
-                background_image_additional,
-                released,
-                rating,
-                genres,
-                metacritic,
-              }) => ({
-                id,
-                name,
-                description,
-                platforms,
-                background_image,
-                background_image_additional,
-                released,
-                rating,
-                genres,
-                metacritic,
-              })
-            )
+          results.map(
+            ({
+              id,
+              name,
+              platforms,
+              background_image,
+              genres,
+              released,
+              rating,
+              metacritic,
+            }) => ({
+              id,
+              name,
+              platforms,
+              background_image,
+              Genres: genres,
+              released,
+              rating,
+              metacritic,
+            })
+          )
+          .filter(({ id, name, platforms, background_image, Genres, released, rating, metacritic }) => 
+            id !== null && name !== null && platforms.length !== 0 && background_image !== null && Genres.length !== 0 && released !== null &&
+            Date.parse(released) > Date.parse("2000-01-01") && rating > 1 && metacritic !== null
+          )
         );
       }
+      
     }
 
-    if(filteredGames.rows.length === 0){
-        return res.status(400).send("We couldn't find any video games related to the given keywords")
+    if (filteredGames.rows.length === 0) {
+      return res
+        .status(400)
+        .send("We couldn't find any video games related to the given keywords");
     }
 
-    const {rows} = filteredGames
+    const { rows } = filteredGames;
 
-    return res.status(200).json(rows);
+    const gamesbyName = rows.slice(0,15)
+
+    return res.status(200).json(gamesbyName);
   } catch (error) {
     return res.status(500).send(error.message);
   }

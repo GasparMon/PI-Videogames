@@ -27,7 +27,7 @@ const getGameById = async (req, res) => {
         const {
           id,
           name,
-          description,
+          description_raw,
           platforms,
           background_image,
           background_image_additional,
@@ -40,7 +40,7 @@ const getGameById = async (req, res) => {
         game = {
           id,
           name,
-          description,
+          description_raw,
           platforms,
           background_image,
           background_image_additional,

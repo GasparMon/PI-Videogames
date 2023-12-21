@@ -5,9 +5,9 @@ const postGame = async (req, res) => {
     const {
       name,
       description,
-      platform,
+      platforms,
       background_image,
-      short_screenshots,
+      // short_screenshots,
       genres, 
       released,
       rating,
@@ -17,9 +17,9 @@ const postGame = async (req, res) => {
     const newGame = await Videogame.create({
       name,
       description,
-      platform,
+      platforms,
       background_image,
-      short_screenshots,
+      // short_screenshots,
       genres,
       released,
       rating,
@@ -30,7 +30,7 @@ const postGame = async (req, res) => {
 
     return res.status(200).json(newGame);
   } catch (error) {
-    return res.status(500).send(error.message);
+    return res.status(500).json({ error: error.message })
   }
 };
 

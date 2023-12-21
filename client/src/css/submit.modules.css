@@ -21,13 +21,13 @@
   height: 90%;
   background: linear-gradient(
     180deg,
-    rgba(37, 113, 145, 0.920) 10%,
-    rgba(63,127,109, 0.920) 50%,
-    rgba(58,190,194, 0.920) 100%
+    rgba(0, 36, 54, 0.92) 10%,
+    rgba(1, 75, 54, 0.92) 50%,
+    rgba(0, 36, 54, 0.92) 100%
   );
   padding: 1rem;
   border-radius: 1rem;
-  border: 1vmin solid #f7a204;
+  border: 1vmin solid #ff7c02;;
   box-shadow: 0.9rem 0.9rem #000000a2;
   overflow: hidden;
   display: flex;
@@ -104,7 +104,7 @@
 .input:focus,
 input:hover {
   outline: none;
-  border-color: rgb(57, 59, 166);
+  border-color: #e87f2b;
   background-color: #fff;
   box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
 }
@@ -144,7 +144,7 @@ input:hover {
 .input:focus,
 input:hover {
   outline: none;
-  border-color: rgb(57, 59, 166);
+  border-color: #e87f2b;
   background-color: #fff;
   box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
 }
@@ -191,7 +191,7 @@ input:hover {
 .input:focus,
 input:hover {
   outline: none;
-  border-color: rgb(57, 59, 166);
+  border-color: #e87f2b;
   background-color: #fff;
   box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
 }
@@ -202,8 +202,6 @@ input:hover {
   text-shadow: 2px 2px #000000;
   margin: 10px;
 }
-
-
 
 .submit_avatar {
     display: flex;
@@ -236,52 +234,6 @@ input:hover {
   justify-content: space-around;
 }
 
-.log_buttons {
-  font-size: 1.3rem;
-  color: #fafafa;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #fafafa;
-  background: #2e6f8e;
-  box-shadow: 3px 3px #fafafa;
-  cursor: pointer;
-  width: 250px;
-  font-family: "Rubik";
-  transition: background 0.3s ease;
-}
-
-.sign_buttons {
-  font-size: 1.3rem;
-  color: #fafafa;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #fafafa;
-  background: #ea6543;
-  box-shadow: 3px 3px #fafafa;
-  cursor: pointer;
-  width: 130px;
-  font-family: "Rubik";
-  transition: background 0.3s ease;
-}
-
-.log_buttons:hover {
-  background:#e2b500;
-}
-.sign_buttons:hover {
-  background: #f62a72;
-}
-
-.log_buttons:active {
-  box-shadow: none;
-  transform: translate(3px, 3px);
-  background:#e2b500;
-}
-
-.sign_buttons:active {
-  box-shadow: none;
-  transform: translate(3px, 3px);
-  background: #f62a72;
-}
 
 .avatar_container{
 display: flex;
@@ -306,28 +258,28 @@ flex-direction: row;
   }
   
   .radio-input:checked + .radio-tile {
-    border-color: #2260ff;
+    border-color: #e87f2b;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    color: #2260ff;
+    color: #e87f2b;
   }
   
   .radio-input:checked + .radio-tile:before {
     transform: scale(1);
     opacity: 1;
-    background-color: #2260ff;
-    border-color: #2260ff;
+    background-color: #e87f2b;
+    border-color: #e87f2b;
   }
   
   .radio-input:checked + .radio-tile .radio-icon svg {
-    fill: #2260ff;
+    fill: #e87f2b;
   }
   
   .radio-input:checked + .radio-tile .radio-label {
-    color: #2260ff;
+    color: #e87f2b;
   }
   
   .radio-input:focus + .radio-tile {
-    border-color: #2260ff;
+    border-color: #e87f2b;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
   }
   
@@ -369,7 +321,7 @@ flex-direction: row;
   }
   
   .radio-tile:hover {
-    border-color: #2260ff;
+    border-color: #e87f2b;
   }
   
   .radio-tile:hover:before {
@@ -379,7 +331,7 @@ flex-direction: row;
   
 
   .radio-label {
-    color: #707070;
+    color: #e90d0d;
     transition: 0.375s ease;
     text-align: center;
     font-size: 13px;
@@ -415,7 +367,7 @@ flex-direction: row;
   position: relative;
   font-size: 15px;
   border: 4px solid transparent;
-  color: rgb(26, 26, 26);
+  color: rgb(207, 207, 207);
   }
 
   .form_container {
@@ -437,3 +389,4 @@ flex-direction: row;
     }
   }
   
+

@@ -9,11 +9,12 @@ let GamesDB = [];
 
 const getGames = async (req, res) => {
   try {
-    while (idPage < 10) {
+    while (idPage < 6) {
       const { data } = await axios.get(`${URL}?${apiKey}&page=${idPage}`);
 
       if (data.results) {
-        GamesDB.push(data.results[0]);
+        data.results.forEach((element) => GamesDB.push(element))
+       
       }
 
       idPage++;
@@ -24,18 +25,19 @@ const getGames = async (req, res) => {
         return {
           id: element.id,
           name: element.name,
-          released: element.released,
           background_image: element.background_image,
           rating: element.rating,
-          metacritic: element.metacritic,
           platforms: element.platforms,
-          genres: element.genres,
-          short_screenshots: element.short_screenshots,
+          Genres: element.genres,
         };
       });
 
       const dbGames = await Videogame.findAll({
-        include: Genres,
+        include: {
+          model: Genres,
+          attributes: ['name'],
+          through: { attributes: [] }
+        },
       });
 
       dbGames.forEach((element) => allGames.push(element));

@@ -37,7 +37,7 @@ export default function Login(props) {
           <div className="login">
             <div className="login_title">
               <h1>Sign In</h1>
-              <span className="material-symbols-outlined">login</span>
+              <img src="./img/login.png"/>
             </div>
             <div className="input_mail">
               <h1>Email </h1>

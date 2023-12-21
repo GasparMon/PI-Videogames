@@ -36,7 +36,7 @@
 
 .page_div {
   height: 60px;
-  width: 25%;
+  width: 40%;
   margin: 0 0 0 10px;
   background-color: black;
   display: flex;
@@ -55,36 +55,36 @@
 }
 
 .page_button{
-  font-size: 1.3rem;
-  color: #fafafa;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #fafafa;
-  background: #2e6e8f;
-  box-shadow: 3px 3px #fafafa;
-  cursor: pointer;
-  width: 40px;
-  font-family: "Rubik";
-  transition: background 0.3s ease;
+  background-color: #f3f7fe;
+  color: #003662;
+  border: none;
+  border-radius: 8px;
+  width: 70px;
   height: 40px;
-  margin: 0 5px 0 5px;
-  align-items: center;
+  transition: .3s;
+  font-family: "Rubik";
+  cursor: pointer;
+  font-size: 25px;
 }
 
 .page_button:hover {
-  background: #ea6543;
+  background-color:#fafafa;
+  box-shadow: 0 0 0 4px #d7d7d75f;
 }
 
 .page_button:hover:active {
   box-shadow: none;
-  transform: translate(3px, 3px);
-  background: #ea6543;
+  transform: translate(2px, 2px);
+  color: #000000;;
+  background-color:#fafafa;
+  box-shadow: 0 0 0 7px #d7d7d75f;
 }
 
 .page_button:disabled {
-  background: #ea6543;
+  background: #f7a104;
   color: #242424d3;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .cards_container{
@@ -95,25 +95,6 @@
 }
 
 
-.pages_div{
-  height: 60px;
-  width: 92%;
-  margin: 0 0 0 10px;
-  background-color: black;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  margin: 10px;
-  padding: 0 30px 0 30px;
-  border-radius: 10px;
-  background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.741) 10%,
-      rgba(0, 0, 0, 0.741) 50%,
-      rgba(0, 0, 0, 0.741) 100%
-    );
-}
 
 .pages_div span{
   font-size: 50px;

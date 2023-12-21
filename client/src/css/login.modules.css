@@ -6,7 +6,7 @@
   padding: 0;
   display: flex;
   justify-content: space-evenly;
-  font-family: "Rubik";
+  
 }
 
 .login_container {
@@ -29,15 +29,15 @@
 .main_title_container div {
   background: linear-gradient(
     80deg,
-    rgba(37, 113, 145, 0.920) 10%,
-    rgba(63,127,109, 0.920) 50%,
-    rgba(58,190,194, 0.920) 100%
+    rgba(0, 36, 54, 0.92) 10%,
+    rgba(1, 75, 54, 0.92) 50%,
+    rgba(0, 36, 54, 0.92) 100%
   );
   width: 80%;
   height: 50%;
   padding: 1rem;
   border-radius: 1rem;
-  border: 1vmin solid #f7a204;
+  border: 1vmin solid #ff7c02;
   box-shadow: 0.8rem 0.8rem #000000a2;
   overflow: hidden;
   display: flex;
@@ -49,7 +49,7 @@
   font-size: 70px;
   color: #0b0b0b;
  text-shadow: 2px 2px #ffffff;
- font-family: "Cabin Sketch", sans-serif;
+ 
 }
 
 .log_container {
@@ -77,13 +77,13 @@
   height: 80%;
   background: linear-gradient(
     180deg,
-    rgba(37, 113, 145, 0.920) 10%,
-    rgba(63,127,109, 0.920) 50%,
-    rgba(58,190,194, 0.920) 100%
+    rgba(0, 36, 54, 0.92) 10%,
+    rgba(1, 75, 54, 0.92) 50%,
+    rgba(0, 36, 54, 0.92) 100%
   );
   padding: 1rem;
   border-radius: 1rem;
-  border: 1vmin solid #f7a204;
+  border: 1vmin solid #ff7c02;
   box-shadow: 0.9rem 0.9rem #000000a2;
   overflow: hidden;
   display: flex;
@@ -108,11 +108,8 @@
   text-shadow: 2px 2px #000000;
 }
 
-.login_title span{
-  font-size: 50px;
-  color: #ffffff;
-  text-shadow: 2px 2px #000000;
-  position: relative;
+.login_title img{
+  width: 0px;
   top: 5px;
   margin: 0 0 0 30px;
 }
@@ -162,7 +159,7 @@
 }
 .input:focus, input:hover {
   outline: none;
-  border-color: rgb(57, 59, 166);
+  border-color: #e87f2b;
   background-color: #fff;
   box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
 }
@@ -207,7 +204,7 @@
 }
 .input:focus, input:hover {
   outline: none;
-  border-color: rgb(57, 59, 166);
+  border-color: #e87f2b;
   background-color: #fff;
   box-shadow: 0 0 0 5px rgba(180, 188, 255, 0.403);
 }
@@ -232,50 +229,57 @@
 
 .log_buttons {
 
-  font-size: 1.3rem;
-  color: #FAFAFA;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #FAFAFA;
-  background: #343399;
-  box-shadow: 3px 3px #fafafa;
-  cursor: pointer;
-  width: 250px;
+  background-color: #f3f7fe;
+  color: #003662;
+  border: none;
+  border-radius: 8px;
+  width: 300px;
+  height: 50px;
+  transition: .3s;
   font-family: "Rubik";
-  transition: background 0.3s ease;
+  cursor: pointer;
+  font-size: 25px;
+ 
 }
 
 .sign_buttons {
 
-  font-size: 1.3rem;
-  color: #FAFAFA;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #FAFAFA;
-  background: #863399fc;
-  box-shadow: 3px 3px #fafafa;
-  cursor: pointer;
-  width: 130px;
+  background-color: #f3f7fe;
+  color: #003662;
+  border: none;
+  border-radius: 8px;
+  width: 150px;
+  height: 50px;
+  transition: .3s;
   font-family: "Rubik";
-  transition: background 0.3s ease;
+  cursor: pointer;
+  font-size: 25px;
+  
 }
 
 .log_buttons:hover {
-  background: #10116c;
+  background-color:#fafafa;
+  box-shadow: 0 0 0 4px #d7d7d75f;
 }
 .sign_buttons:hover {
-  background: #6b106c;
+  background-color:#f7a104;
+  box-shadow: 0 0 0 4px #d7d7d75f;
+  color: #000000;;
 }
 
 .log_buttons:active {
   box-shadow: none;
-  transform: translate(3px, 3px);
-  background: #0401bb;
+  transform: translate(2px, 2px);
+  color: #000000;;
+  background-color:#fafafa;
+  box-shadow: 0 0 0 7px #d7d7d75f;
 }
 
 .sign_buttons:active {
   box-shadow: none;
-  transform: translate(3px, 3px);
-  background: #6b106c;
+  transform: translate(2px, 2px);
+  color: #000000;;
+  background-color:#f7a104;
+  box-shadow: 0 0 0 7px #d7d7d75f;
 }
 

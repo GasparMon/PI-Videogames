@@ -24,10 +24,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [15, 50],
+          len: [15, 250],
         },
       },
-      platform: {
+      platforms: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
@@ -35,10 +35,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      short_screenshots: {
-        type: DataTypes.STRING,
-        allowNull: true,
-      },
+      // short_screenshots: {
+      //   type: DataTypes.STRING,
+      //   allowNull: true,
+      // },
       genres: {
         type: DataTypes.ARRAY(DataTypes.INTEGER),
         allowNull: false,
