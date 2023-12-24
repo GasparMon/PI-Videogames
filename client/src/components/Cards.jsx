@@ -6,36 +6,39 @@ import { getVideogames } from "../redux/actions";
 import Card from "./Card";
 
 export default function Cards() {
-  useEffect(() => {
-    const VideogameData = async () => {
-      try {
-        const videogamesData = await getGames();
-        dispatch(getVideogames(videogamesData));
-      } catch (error) {
-        console.error("Error fetching videogames:", error);
-      }
-    };
-    VideogameData();
-  }, []);
-
   const [pagePosition, setPagePosition] = useState(1);
   const itemsOnPage = 15;
   const dispatch = useDispatch();
   const { gameData } = useSelector((status) => status.userData);
 
+  useEffect(() => {
+    if (gameData.length === 0) {
+      const fetchVideogameData = async () => {
+        try {
+          const videogamesData = await getGames();
+          dispatch(getVideogames(videogamesData));
+        } catch (error) {
+          console.error("Error fetching videogames:", error);
+        }
+      };
+      fetchVideogameData();
+    }
+  }, [dispatch, gameData.length]);
+
   const pageNum = Math.ceil(gameData.length / itemsOnPage);
-  const itemsArray = Array.from({length: itemsOnPage}, (_,index) => 
-  gameData.slice(index * itemsOnPage, (index + 1) * itemsOnPage)
+  const itemsArray = Array.from(
+    { length: itemsOnPage },
+    (_, index) =>
+      gameData.slice(index * itemsOnPage, (index + 1) * itemsOnPage)
   );
 
-  const renderCards = itemsArray[pagePosition - 1]
+  const renderCards = itemsArray[pagePosition - 1];
 
-  return <div className="cards_container">
-
-<div className="cards_div">
+  return (
+    <div className="cards_container">
+      <div className="cards_div">
         {renderCards.map((element) => (
           <Card
-          
             key={element.id}
             id={element.id}
             name={element.name}
@@ -47,15 +50,17 @@ export default function Cards() {
         ))}
       </div>
       <div className="page_div">
-  {Array.from({ length: pageNum }, (_, index) => (
+        {Array.from({ length: pageNum }, (_, index) => (
           <button
-           key={index + 1}
-           className="page_button"
-           onClick={() => setPagePosition(index + 1)}
+            key={index + 1}
+            className="page_button"
+            onClick={() => setPagePosition(index + 1)}
             disabled={pagePosition === index + 1}
           >
             {index + 1}
-          </button>))}
+          </button>
+        ))}
       </div>
-  </div>;
+    </div>
+  );
 }

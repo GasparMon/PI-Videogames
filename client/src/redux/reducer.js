@@ -13,6 +13,7 @@ const initialState = {
   userData: {
     username: "",
     avatar: "",
+    email:"",
     gameData: [],
     gameFiltered: [],
     DataCopy: [],
@@ -28,6 +29,7 @@ export default function reducer(state = initialState, action) {
           ...state.userData,
           username: action.payload.username,
           avatar: action.payload.avatar,
+          email: action.payload.email,
         },
       };
     case CLEANUSER:

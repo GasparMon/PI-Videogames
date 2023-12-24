@@ -1,28 +1,29 @@
 .detail_container {
-    height: 780px;
-    width: 98%;
-    margin: 0 0 0 10px;
+  height: 77%;
+  width: 98%;
+  position: absolute;
+  margin: 0 0 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  overflow: auto;
     display: flex;
-    flex-wrap: wrap;
-    justify-content:space-evenly;
-    align-items: center;
-    gap: 10px;
-    box-sizing: border-box;
-    overflow: auto;
-      display: flex;
-    flex-direction: row;
-  
-  
-    background: linear-gradient(
-        180deg,
-        rgba(76, 76, 76, 0.292) 10%,
-        rgba(121, 121, 121, 0.292) 50%,
-        rgba(115, 115, 115, 0.292) 100%
-        
-      );
-      animation: fadeIn 1s ease forwards;
-  
-    border-radius: 20px;
+  flex-direction: row;
+  background: linear-gradient(
+    180deg,
+    rgba(1, 1, 1, 0.741) 10%,
+    rgba(84, 84, 84, 0.741) 50%,
+    rgba(0, 0, 0, 0.741) 100%
+  );
+
+ 
+    animation: fadeIn 1s ease forwards;
+
+  border-radius: 20px;
+
   }
   
   @keyframes fadeIn {
@@ -35,9 +36,9 @@
   }
 
   .game_detail{
+    height: 92%;
     width: 97%;
-    height: 93%;
-    border: 4px solid black;
+    position: absolute;
     background: linear-gradient(
       80deg,
       rgba(0, 36, 54, 0.92) 10%,
@@ -58,16 +59,6 @@
     animation: fadeIn .8s ease forwards;
 
   }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
   .detail_left{
   
     height: 100%;
@@ -76,6 +67,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    
   }
 
   .detail_title{
@@ -91,11 +83,7 @@
     background-color: rgba(255, 255, 255, 0.128);
   }
 
-  .detail_title h1{
-    font-size: 40px;
-    margin: 0;
-    text-shadow: 2px 2px #000000;
-  }
+ 
 
   .detail_img{
   
@@ -121,8 +109,8 @@
 
   .details_{
    
-    height: 15%;
-    width: 95%;
+    height: 20%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     justify-content:space-evenly;
@@ -172,9 +160,7 @@
     justify-content: space-evenly;
   }
 
-  .rating span{
-    font-size: 90px;
-  }
+  
 
   .rating h1{
     font-size: 50px;
@@ -236,19 +222,12 @@
     flex-wrap: wrap;
     justify-content:space-evenly;
     align-items: center;
-    box-sizing: border-box;
-    overflow: auto;
-      display: flex;
     flex-direction: row;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.215);
   }
 
-  .back_button span{
-    font-size: 60px;
-    cursor: pointer;
-    margin: 0 0 0 10px;
-  }
+ 
 
   .rating svg{
     width: 80%;
@@ -266,3 +245,39 @@
     border-radius: 20px;
 
   }
+
+
+
+
+  .game_detail span{
+    font-size: 60px;
+    cursor: pointer;
+    margin: 0 0 0 10px;
+  }
+
+  .rating span{
+    font-size: 90px;
+  }
+
+
+  h1 {
+    font-size: 60px;
+    color: #f8f8f8;
+    text-shadow: 2px 2px #ffffff;
+    font-family: "Gugi";
+    text-shadow: 3px 3px #000000;
+  }
+  
+  h2 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+  }
+  
+  h3 {
+    font-size: 30px;
+    margin: 10px;
+    color: white;
+    text-shadow: 2px 2px #000000;
+  }
+

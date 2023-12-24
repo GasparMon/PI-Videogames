@@ -10,6 +10,7 @@ import Form from './components/Form';
 import Cards from './components/Cards';
 import Detail from './components/Detail';
 import Search from './components/Search';
+import Options from './components/Options';
 
 
 
@@ -34,8 +35,9 @@ function App() {
     
       if (data.user) {
         const{user} = data
-        const{username, avatar} = user
-        dispatch(getUser({username, avatar}))
+        const{username, avatar, email} = user
+        console.log(user)
+        dispatch(getUser({username, avatar, email}))
         setAccess(true);
         navigate("/home");
       } else {
@@ -57,6 +59,8 @@ function App() {
         <Route path="/form" element={<Form/>}/>
         <Route path="/detail/:id" element={<Detail/>}/>
         <Route path="/search" element={<Search/>}/>
+        <Route path="/options" element={<Options/>}/>
+        
       </Routes>
     </div>
   );

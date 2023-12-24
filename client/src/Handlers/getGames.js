@@ -1,5 +1,4 @@
 import axios from "axios"
-import { getVideogames } from "../redux/actions";
 
 const getGames = async (req, res) =>{
 

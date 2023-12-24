@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "../css/navbar.modules.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   cleanUser,
   filterGenre,
@@ -9,20 +9,24 @@ import {
   orderName,
   orderRating,
 } from "../redux/actions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import getGameByName from "../Handlers/getGamebyName";
 
 export default function NavBar(props) {
   const userData = useSelector((state) => state.userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [searchName, setSearchName] = useState({
     name: "",
   });
 
+  const [filter, setFilter] = useState(false)
+
   const handleLogout = () => {
     dispatch(cleanUser());
+    navigate("/")
   };
   const handleChange = (event) => {
     const { value } = event.target;
@@ -34,6 +38,12 @@ export default function NavBar(props) {
   };
 
   const handleSearch = async (event) => {
+
+    if(filter){
+      setFilter(false)
+    }
+
+
     try {
       event.preventDefault();
       const { name } = searchName;
@@ -78,6 +88,26 @@ export default function NavBar(props) {
     dispatch(filterGenre(value));
   };
 
+  useEffect(()=>{
+
+    return () => {
+      if (filter) {
+        setFilter(false);}}
+
+  },[])
+
+ const filterRender = location.pathname === "/home";
+ const homeRender = location.pathname !== "/home"
+
+ const handleFilters =()=>{
+
+  if(filter){
+    setFilter(false)
+  } else {
+    setFilter(true)
+  }
+ }
+
   const genres = [
     "Action",
     "Indie",
@@ -104,15 +134,14 @@ export default function NavBar(props) {
     <div className="navbar_container">
       <div className="nav_container">
         <div className="nav_profile">
-          <Link to="/home" id="Link">
+          <Link to="/options" id="Link">
             <button className={userData.avatar}></button>
           </Link>
-          <div className="username">
-            <h2>{userData.username}</h2>
-          </div>
+            <h3>{userData.username}</h3>
         </div>
         <div className="nav_logo">
-          <h1>My Game Room App</h1>
+        <img src="./img/logo_nav.png"></img>
+          <h3>Game Room App</h3>
         </div>
         <div className="nav_search">
           <input
@@ -128,20 +157,26 @@ export default function NavBar(props) {
           </span>
         </div>
         <div className="nav_buttons">
-          <button className="filter_button">Filters</button>
-          <Link to="/form" className="link">
-            <button className="create_button">Create</button>
-          </Link>
+        {filterRender && <button className="filter_button" onClick={handleFilters}>Filters</button>}
+        {homeRender && 
+      
+        <button className="filter_button" onClick={()=> navigate("/home")}>Home</button>
+
+        
+        }
+        
+            <button className="create_button" onClick={()=> {setFilter(false), navigate("/form")}}>Create</button>
+        
         </div>
         <div className="nav_logout">
-          <Link to="/" className="link">
+       
             <button className="nav_logout" onClick={handleLogout}>
               Logout
             </button>
-          </Link>
+        
         </div>
       </div>
-      <div className="filter_container">
+{filter && filterRender &&  <div className="filter_container">
         <div className="button_container">
           <button
             className="button_filter"
@@ -199,10 +234,12 @@ export default function NavBar(props) {
             </option>
           ))}
         </select>
+        <div className="button_container">
         <button className="button_all" value="All" onClick={handleOrigin}>
           All
         </button>
-      </div>
+        </div>
+      </div>}
     </div>
   );
 }

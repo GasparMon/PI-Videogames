@@ -1,10 +1,10 @@
 import React from 'react';
 import "../css/card.modules.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Card(props) {
 
-    
+  
 
   const optionalRender = () => {
     if (props.id.length > 10) {
@@ -13,11 +13,11 @@ export default function Card(props) {
               <div className="card_img">
               <Link to={`/detail/${props.id}`} className="Link_detail">
                 {console.log(props.id)}
-                <img src={props.image} alt={props.name} />
+                <img src={`./img/${props.image}`} alt={props.name} />
                 </Link>
               </div>
               <div className="card_title">
-                <h1>{props.name}</h1>
+                <h3>{props.name}</h3>
               </div>
               <div className="card_genres">
                 {props.genres.map((element, index) => (
@@ -33,7 +33,16 @@ export default function Card(props) {
                     element === "PlayStation 5" ||
                     element === "PC" ||
                     element === "Xbox One" ||
-                    element === "Nintendo Switch"
+                    element === "Nintendo Switch" ||
+                    element === "PlayStation 3" ||
+                    element === "PlayStation 2" ||
+                    element === "PlayStation" ||
+                    element === "iOS" ||
+                    element === "macOS" ||
+                    element === "Web" ||
+                    element === "Wii" ||
+                    element === "Android" ||
+                    element === "GameCube"
                   ) {
                     return (
                       <div className="platform_img" key={index}>
@@ -58,7 +67,7 @@ export default function Card(props) {
             </Link>
           </div>
           <div className="card_title">
-            <h1>{props.name}</h1>
+          <h3>{props.name}</h3>
           </div>
           <div className="card_genres">
             {props.genres.map((element, index) => (
@@ -74,7 +83,16 @@ export default function Card(props) {
                 element.platform.name === "PlayStation 5" ||
                 element.platform.name === "PC" ||
                 element.platform.name === "Xbox One" ||
-                element.platform.name === "Nintendo Switch"
+                element.platform.name === "Nintendo Switch"||
+                element.platform.name === "Android"||
+                element.platform.name === "PlayStation 3" ||
+                element.platform.name === "PlayStation 2" ||
+                element.platform.name === "PlayStation 1" ||
+                element.platform.name === "GameCube" ||
+                element.platform.name === "iOS" ||
+                element.platform.name === "macOS" ||
+                element.platform.name === "Web" ||
+                element.platform.name === "Wii"
               ) {
                 return (
                   <div className="platform_img" key={index}>

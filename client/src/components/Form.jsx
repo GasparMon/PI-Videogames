@@ -51,16 +51,18 @@ export default function Form() {
   };
 
   const handleFile = (event) => {
-    const created = event.target.files[0].lastModified;
-    const fileName = event.target.files[0].name;
-    const fileExtension = fileName.split(".").pop();
-
-    const newFileName = `${created}.${fileExtension}`;
-
-    SetNewVideogame({
-      ...newVideogame,
-      background_image: newFileName,
-    });
+    const { files } = event.target;
+  
+    if (files.length > 0) {
+      const fileName = files[0].name;
+  
+      const finalName = fileName.replace(/^C:\\fakepath\\/, '');
+  
+      SetNewVideogame({
+        ...newVideogame,
+        background_image: finalName,
+      });
+    }
   };
 
   const handleRestart = () => {
@@ -100,7 +102,7 @@ export default function Form() {
     <div className="forms_container">
       <div className="game_form">
         <div className="form_title">
-          <h1>Create New Videogame</h1>
+          <h2>Create New Videogame</h2>
         </div>
 
         <div className="form_info">
@@ -131,7 +133,7 @@ export default function Form() {
               <div className="game_span">
                 <span class="material-symbols-outlined">description</span>
               </div>
-              <div className="game_title_input">
+              <div className="game_text_description">
                 <textarea
                   rows="18"
                   cols="60"
@@ -171,6 +173,9 @@ export default function Form() {
                     value={newVideogame.rating}
                     onChange={handleChange}
                   >
+                    <option disabled selected value="">
+            Select Rating
+          </option>
                     <option value="1">Rating: 1</option>
                     <option value="1.5">Rating: 1.5</option>
                     <option value="2">Rating: 2</option>
@@ -216,7 +221,7 @@ export default function Form() {
                   "Educational",
                   "Card",
                 ].map((genre, index) => (
-                  <div key={genre}>
+                  <div className="genres_div" key={genre}>
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
@@ -247,7 +252,7 @@ export default function Form() {
                   "Nintendo Switch",
                   "PC",
                 ].map((platform) => (
-                  <div key={platform}>
+                  <div className="platforms_div" key={platform}>
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
@@ -263,10 +268,11 @@ export default function Form() {
               </div>
             </div>
             <div className="vid_img">
-              <form>
-                <label className="rigth_form_label" for="imageUpload">
+            <label className="rigth_form_label" for="imageUpload">
                   Videogame image
                 </label>
+              <form>
+               
                 <input
                   className="input_img"
                   type="file"
@@ -274,9 +280,6 @@ export default function Form() {
                   accept="image/*"
                   onChange={handleFile}
                 />
-                <button className="img_button" type="submit">
-                  Upload Image
-                </button>
               </form>
             </div>
           </div>

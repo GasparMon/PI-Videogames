@@ -1,7 +1,7 @@
 body {
   overflow: auto;
   background-color: black;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   color: white;
   font-family: "Rubik";
@@ -19,10 +19,406 @@ body {
       rgb(255, 255, 255, 0.19) 100%,
       rgb(255, 255, 255, 0.19)
     ),
-    url(./img/rep123.png) repeat;
+    url(./img/back_g1.jpeg) repeat;
   font-family: "Rubik";
-
-  /* Añade estas propiedades para ajustar la imagen al tamaño del div */
-  background-size: cover;
+  background-size:auto;
   background-position: center;
+  
+}
+
+@media screen and (max-width: 1500px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  h4 {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .detail_container {
+    height: 550px;
+  }
+
+  .game_detail span {
+    font-size: 60px;
+  }
+
+  .rating span {
+    font-size: 70px;
+  }
+
+  .details_ label {
+    font-size: 15px;
+  }
+
+  .nav_buttons button,
+  .nav_logout button,
+  .filter_container button,
+  .submit_button,
+  .back_button {
+    font-size: 17px;
+  }
+
+  .nav_logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  select {
+    font-size: 15px;
+    pad: 0;
+  }
+
+  .avatar_container {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .radio-tile {
+    width: 70px;
+    min-height: 70px;
+  }
+
+  .submit_button,
+  .back_button {
+    font-size: 20px;
+  }
+
+  .card_container {
+    width: 400px;
+    height: 500px;
+  }
+
+  .platform_img{
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar_container h3 {
+    font-size: 25px;
+  }
+
+  .card_genres label{
+    font-size: 17px;
+  }
+
+  
+  .genres_div{
+    width: 22%;
+    height: 17%;
+  }
+
+  .platforms_div{
+    width: 30%;
+    height: 40%;
+  }
+
+  .check_platform,
+  .check_genres {
+    height: 98%;
+    width: 85%;
+
+  }
+  
+  .checkbox-label {
+    font-size: 15px;
+
+
+  }
+  .checkbox {
+    width: 14px;
+    height: 14px;
+  }
+  
+
+}
+
+@media screen and (max-width: 1300px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .nav_buttons button,
+  .nav_logout button,
+  .filter_container button,
+  .submit_button,
+  .back_button {
+    font-size: 12px;
+  }
+
+  .details_ label {
+    font-size: 12px;
+    text-shadow: 2px 2px #000000;
+  }
+
+  .game_detail span {
+    font-size: 50px;
+  }
+
+  .rating span {
+    font-size: 60px;
+  }
+
+  .nav_logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+ 
+  .detail_container {
+    height: 500px;
+  }
+
+  .platform_img{
+    width: 30px;
+    height: 30px;
+  }
+
+  .navbar_container h3 {
+    font-size: 17px;
+  }
+
+  
+  .checkbox-label {
+    font-size: 12px;
+
+
+  }
+ 
+  .rigth_form_label {
+    font-size: 17px;
+  }
+  
+  .form_info_left label {
+    font-size: 17px;
+  }
+
+  .forms_container span {
+    font-size: 50px;
+    font-weight: 500;
+  }
+
+  .create_buttons {
+    font-size: 20px;
+
+  }
+  
+  .restart_buttons {
+    font-size: 20px;
+  }
+
+}
+
+
+
+@media screen and (max-width: 1200px) {
+
+  h1 {
+    font-size: 35px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  h4 {
+    font-size: 10px;
+  }
+
+  .card_genres label{
+    font-size: 10px;
+  }
+
+  .details_ label{
+    font-size: 8px;
+  }
+
+  .navbar_container h3 {
+    font-size: 0px;
+  }
+
+  p {
+    font-size: 7px;
+  }   
+
+  img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .radio-tile {
+    width: 40px;
+    min-height: 40px;
+  }
+
+  .submit_main_container {
+    overflow: hidden;
+  }
+
+  .game_detail span{
+    font-size: 40px;
+  }
+
+  .rigth_form_label {
+    font-size: 12px;
+  }
+  
+  .form_info_left label {
+    font-size: 12px;
+  }
+
+  .forms_container span {
+    font-size: 45px;
+    font-weight: 500;
+  }
+
+  .create_buttons {
+    font-size: 17px;
+
+  }
+  
+  .restart_buttons {
+    font-size: 17px;
+  }
+
+
+}
+
+@media screen and (max-width: 1000px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  .navbar_container h3 {
+    font-size: 0px;
+  }
+
+  p {
+    font-size: 10px;
+  }
+
+  .nav_buttons button,
+  .nav_logout button,
+  .filter_container button,
+  .submit_button,
+  .back_button {
+    font-size: 10px;
+  }
+
+  .nav_search span {
+    font-size: 50px;
+  }
+
+  select {
+    font-size: 15px;
+  }
+
+
+  .detail_container {
+    height: 400px;
+  }
+
+  .card_platform{
+    width: 100%;
+    height: 1%;
+    opacity: 0;
+  }
+
+  .rigth_form_label {
+    font-size: 8px;
+  }
+  
+  .form_info_left label {
+    font-size: 8px;
+  }
+
+  .forms_container span {
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .create_buttons {
+    font-size: 15px;
+
+  }
+  
+  .restart_buttons {
+    font-size: 15px;
+  }
+
+  .form_info {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: scroll;
+  }
+
+  .form_info_left {
+    height: 95%;
+    width: 95%;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.991);
+  }
+  
+  .form_info_right {
+    height: 95%;
+    width: 95%;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.991);
+  }
+
+  .checkbox-label {
+    font-size: 9px;
+  }
+
+  .game_title_input input {
+    width: 80%;
+    height: 90%;
+  }
+
+  .game_description textarea {
+    width: 80%;
+    height: 80%;
+  }
+
+ 
+
 }

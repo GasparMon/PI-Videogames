@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "../css/submit.modules.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import createUser from "../Handlers/submitUser";
 
 export default function Submit(props) {
+  const navigate = useNavigate();
   const [submitUser, setSubmitUser] = useState({
     username: "",
     email: "",
@@ -36,21 +37,21 @@ export default function Submit(props) {
   };
 
   return (
-    <div className="main_container">
+    <div className="submit_main_container">
       <div className="submit_container">
-        <div className="main_title_container">
-          <div>
-            <h1>My Game Room App</h1>
+        <div>
+          <div className="main_title_container">
+            <img src="./img/logo_game.png"></img>
+            <h1>Game Room App</h1>
           </div>
         </div>
-        <div className="form_container">
+        <div>
           <div className="submit">
             <div className="submit_title">
-              <h1>Submit</h1>
-          
+              <h2>Submit</h2>
             </div>
             <div className="submit_user">
-              <h1>Username </h1>
+              <h3>Username </h3>
               <input
                 type="text"
                 name="username"
@@ -60,7 +61,7 @@ export default function Submit(props) {
               />
             </div>
             <div className="submit_mail">
-              <h1>Email </h1>
+              <h3>Email </h3>
               <input
                 type="email"
                 name="email"
@@ -70,7 +71,7 @@ export default function Submit(props) {
               />
             </div>
             <div className="submit_password">
-              <h1>Password </h1>
+              <h3>Password </h3>
               <input
                 type="password"
                 name="password"
@@ -84,8 +85,9 @@ export default function Submit(props) {
                 Password must include at least one uppercase letter & one digit
               </p>
             </div>
+            <h3>Avatar </h3>
+
             <div className="submit_avatar">
-              <h1>Avatar </h1>
               <div className="avatar_container">
                 <div class="radio-inputs">
                   <label>
@@ -171,32 +173,18 @@ export default function Submit(props) {
                     </div>
                   </label>
                 </div>
-
-                <div class="radio-inputs">
-                  <label>
-                    <input
-                      class="radio-input"
-                      type="radio"
-                      name="avatar"
-                      onClick={handleChange}
-                      value="a6"
-                    />
-                    <div class="radio-tile">
-                      <div class="radio-icon">
-                        <img src="./img/av_06.png" />
-                      </div>
-                    </div>
-                  </label>
-                </div>
               </div>
             </div>
-            <div className="sublogin_buttons">
-              <button className="log_buttons" onClick={handleSubmit}>
+
+            <div className="submit_buttons">
+              <button className="submit_button" onClick={handleSubmit}>
                 Submit
               </button>
-              <Link to="/">
-                <button className="sign_buttons">Go back</button>
-              </Link>
+              <button className="back_button" onClick={()=> navigate("/")}>
+            
+                  Go back
+              
+              </button>
             </div>
           </div>
         </div>

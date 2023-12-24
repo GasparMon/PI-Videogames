@@ -21,9 +21,6 @@ export default function Search() {
         ))}
       </div>
       <div className="pages_div">
-        <Link to="/home" className="link">
-          <span class="material-symbols-outlined">home</span>
-        </Link>
       </div>
     </div>
   );

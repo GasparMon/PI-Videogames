@@ -1,6 +1,7 @@
-.cards_div {
-  height: 720px;
+.cards_container {
+  height: 80%;
   width: 98%;
+  position: absolute;
   margin: 0 0 0 10px;
   display: flex;
   flex-wrap: wrap;
@@ -11,39 +12,30 @@
   overflow: auto;
     display: flex;
   flex-direction: row;
-
-
   background: linear-gradient(
-      180deg,
-      rgba(76, 76, 76, 0.5) 10%,
-      rgba(121, 121, 121, 0.5) 50%,
-      rgba(115, 115, 115, 0.5) 100%
-      
-    );
+    180deg,
+    rgba(1, 1, 1, 0.741) 10%,
+    rgba(84, 84, 84, 0.741) 50%,
+    rgba(0, 0, 0, 0.741) 100%
+  );
+
+ 
     animation: fadeIn 1s ease forwards;
 
   border-radius: 20px;
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .page_div {
-  height: 60px;
-  width: 40%;
+  height: 9%;
+  width: 95%;
   margin: 0 0 0 10px;
   background-color: black;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  margin: 10px;
+  justify-content: center;
+  margin: 5px;
   padding: 0 30px 0 30px;
   border-radius: 10px;
   background: linear-gradient(
@@ -52,6 +44,8 @@
       rgba(0, 0, 0, 0.741) 50%,
       rgba(0, 0, 0, 0.741) 100%
     );
+    animation: fadeIn 1s ease forwards;
+ 
 }
 
 .page_button{
@@ -59,12 +53,14 @@
   color: #003662;
   border: none;
   border-radius: 8px;
-  width: 70px;
-  height: 40px;
+  width: 6%;
+  height: 80%;
   transition: .3s;
   font-family: "Rubik";
   cursor: pointer;
   font-size: 25px;
+  align-items: center;
+  margin: 15px;
 }
 
 .page_button:hover {
@@ -81,23 +77,31 @@
 }
 
 .page_button:disabled {
-  background: #f7a104;
+  background: #d38900;
   color: #242424d3;
   cursor: not-allowed;
   box-shadow: none;
 }
 
-.cards_container{
+.cards_div {
+  height: 87%;
+  width: 98%;
+  margin: 0 0 0 10px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 10px;
+  box-sizing: border-box;
+  overflow: auto;
+    display: flex;
+  flex-direction: row;
+
+
+ 
+    animation: fadeIn 1s ease forwards;
+
+  border-radius: 20px;
+
 }
 
-
-
-.pages_div span{
-  font-size: 50px;
-  cursor: pointer;
-  font-weight: 800;
-}

@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/login.modules.css";
 import { useState } from "react";
 
 export default function Login(props) {
+  const navigate = useNavigate()
   const { logIn } = props;
 
   const [userData, setUserData] = useState({
@@ -26,21 +27,21 @@ export default function Login(props) {
   };
 
   return (
-    <div className="main_container">
+    <div className="login_main_container">
       <div className="login_container">
-        <div className="main_title_container">
-          <div>
-            <h1>My Game Room App</h1>
+        <div>
+          <div className="main_title_container">
+            <img src="./img/logo_game.png"></img>
+            <h1>Game Room App</h1>
           </div>
         </div>
-        <div className="log_container">
+        <div>
           <div className="login">
             <div className="login_title">
-              <h1>Sign In</h1>
-              <img src="./img/login.png"/>
+              <h2>Sign In</h2>
             </div>
-            <div className="input_mail">
-              <h1>Email </h1>
+            <div className="login_inputs">
+              <h3>Email </h3>
               <input
                 type="email"
                 name="email"
@@ -49,8 +50,8 @@ export default function Login(props) {
                 placeholder="Enter your Email"
               />
             </div>
-            <div className="input_password">
-              <h1>Password </h1>
+            <div className="login_inputs">
+              <h3>Password </h3>
               <input
                 type="password"
                 name="password"
@@ -60,12 +61,16 @@ export default function Login(props) {
               />
             </div>
             <div className="login_buttons">
-              <button className="log_buttons" onClick={hadleSubmit}>
+              <button
+                type="submit"
+                className="login_button"
+                onClick={hadleSubmit}
+              >
                 Login
               </button>
-              <Link to="/submit">
-                <button className="sign_buttons">Sign Up</button>
-              </Link>
+              <button className="signin_button" onClick={()=>navigate("/submit")}>
+                Sign In
+              </button>
             </div>
           </div>
         </div>

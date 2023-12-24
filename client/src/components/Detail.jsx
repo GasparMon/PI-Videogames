@@ -28,25 +28,23 @@ export default function Detail() {
   }, []);
 
   const optionalRender = () => {
-    if (game.id && game.genres && game.platforms && game.id.length > 10) {
+    if (Object.keys(game).length > 0 && game.id.length > 10) {
       return (
         <>
           <div className="game_detail">
-            <div className="back_button">
               <span class="material-symbols-outlined" onClick={goBack}>
                 widgets
               </span>
-            </div>
             <div className="detail_left">
               <div className="detail_title">
-                <h1>{game.name}</h1>
+              <h3>{game.name}</h3>
               </div>
               <div className="detail_img">
                 {game.background_image && (
                   <img
                     className="detail-img"
-                    src={game.background_image}
-                    alt={game.name}
+                    src={"./img/cover013.jpeg"}
+                    alt={game.background_image}
                   />
                 )}
               </div>
@@ -55,7 +53,7 @@ export default function Detail() {
                   <span class="material-symbols-outlined">trending_up</span>
                 </div>
                 <div className="rating">
-                  <h1>{game.rating}</h1>
+                <h2>{game.rating}</h2>
                 </div>
               </div>
               <div className="details_">
@@ -80,7 +78,7 @@ export default function Detail() {
                   ))}
               </div>
               <div className="detail_date">
-                <h2>Realeased Date: {game.released}</h2>
+              <h3>Realeased Date: {game.released}</h3>
               </div>
             </div>
           </div>
@@ -90,14 +88,14 @@ export default function Detail() {
       return (
         <>
           <div className="game_detail">
-            <div className="back_button">
+            
               <span class="material-symbols-outlined" onClick={goBack}>
                 widgets
               </span>
-            </div>
+         
             <div className="detail_left">
               <div className="detail_title">
-                <h1>{game.name}</h1>
+              <h3>{game.name}</h3>
               </div>
               <div className="detail_img">
                 {game.background_image && (
@@ -113,7 +111,7 @@ export default function Detail() {
                   <span class="material-symbols-outlined">trending_up</span>
                 </div>
                 <div className="rating">
-                  <h1>{game.rating}</h1>
+                  <h2>{game.rating}</h2>
                 </div>
                 <div className="rating">
                   <svg
@@ -193,7 +191,7 @@ export default function Detail() {
                   </svg>
                 </div>
                 <div className="rating">
-                  <h1>{game.metacritic}</h1>
+                  <h2>{game.metacritic}</h2>
                 </div>
               </div>
               <div className="details_">
@@ -220,7 +218,7 @@ export default function Detail() {
                   ))}
               </div>
               <div className="detail_date">
-                <h2>Realeased Date: {game.released}</h2>
+                <h3>Realeased Date: {game.released}</h3>
               </div>
             </div>
           </div>
@@ -229,5 +227,9 @@ export default function Detail() {
     }
   };
 
-  return <div className="detail_container">{optionalRender()}</div>;
+  return <div className="detail_container">
+  
+    {optionalRender()}
+  
+  </div>;
 }
