@@ -10,7 +10,7 @@
     );
     padding: 0.5rem;
     border-radius: 1rem;
-    border: 0.7vmin solid rgba(0, 0, 0, 0.343);
+    border: 0.7vmin solid  #f7a104;;
     box-shadow: 0.8rem 0.8rem #000000a2;
     overflow: hidden;
     display: flex;
@@ -32,7 +32,7 @@
   }
   
   .card_container:hover {
-    border: 0.7vmin solid rgba(60, 60, 60, 0.211);
+    border: 0.7vmin solid  #ff930f;;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.617);
     transform: scale(1.02);   
   }

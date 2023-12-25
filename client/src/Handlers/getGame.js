@@ -13,7 +13,7 @@ const getGame = async (id) => {
       return data;
     }
   } catch (error) {
-    return res.status(500).send(error.message);
+    alert(error.message);
   }
 };
 

@@ -1,4 +1,4 @@
-import { CLEANUSER, FILTERGENRE, FILTERORIGIN, GETGAMEBYNAME, GETUSER, GETVIDEOGAMES, ORDERNAME, ORDERRATING } from "./types";
+import { CLEANUSER, DELETEGAME, FILTERGENRE, FILTERORIGIN, GETGAMEBYNAME, GETUSER, GETVIDEOGAMES, ORDERNAME, ORDERRATING } from "./types";
 
 export function getUser(userData){
     return{
@@ -60,5 +60,15 @@ export function filterOrigin(origin){
     return{
         type: FILTERORIGIN,
         payload: origin,
+    }
+}
+
+
+export function deleteGame(id){
+
+    return{
+
+        type:DELETEGAME,
+        payload:id,
     }
 }

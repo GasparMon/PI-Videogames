@@ -80,12 +80,15 @@ export default function NavBar(props) {
     const { value } = event.target;
 
     dispatch(filterOrigin(value));
+    
   };
 
   const handleGenre = (event) => {
     const { value } = event.target;
 
     dispatch(filterGenre(value));
+
+    console.log(value)
   };
 
   useEffect(()=>{

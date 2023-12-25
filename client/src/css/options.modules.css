@@ -1,5 +1,5 @@
 .options_container {
-  height: 78%;
+  height: 77%;
   width: 98%;
   position: absolute;
   margin: 0 0 0 10px;
@@ -14,187 +14,199 @@
   flex-direction: row;
   background: linear-gradient(
     180deg,
-    rgba(1, 1, 1, 0.741) 10%,
-    rgba(84, 84, 84, 0.741) 50%,
-    rgba(0, 0, 0, 0.741) 100%
+    rgba(1, 1, 1, 0.296) 10%,
+    rgba(84, 84, 84, 0.296) 50%,
+    rgba(0, 0, 0, 0.296) 100%
   );
+  backdrop-filter: blur(5px);
 
   animation: fadeIn 1s ease forwards;
 
   border-radius: 20px;
 }
 
-.options_section{
-    height: 90%;
-    width: 95%;
-    position: absolute;
-    background: linear-gradient(
-      80deg,
-      rgba(0, 36, 54, 0.92) 10%,
-      rgba(1, 75, 54, 0.92) 50%,
-      rgba(0, 36, 54, 0.92) 100%
-    );
-    padding: 0.5rem;
-    border-radius: 1rem;
-    border: 0.7vmin solid #006e7e;
-    box-shadow: 0.8rem 0.8rem #000000a2;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 10px 0 10px 0;
-    transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    animation: fadeIn .8s ease forwards;
+.options_section {
+  height: 90%;
+  width: 95%;
+  position: absolute;
+  background: linear-gradient(
+    80deg,
+    rgba(0, 36, 54, 0.92) 10%,
+    rgba(1, 75, 54, 0.92) 50%,
+    rgba(0, 36, 54, 0.92) 100%
+  );
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 0.7vmin solid #006e7e;
+  box-shadow: 0.8rem 0.8rem #000000a2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 10px 0 10px 0;
+  transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 0.8s ease forwards;
 }
 
-.options_title{
-    height: 8%;
-    width: 70%;
-    padding: 0 50px 0 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    box-shadow: 0 0 7px rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.128);
+.options_title {
+  height: 8%;
+  width: 70%;
+  padding: 0 50px 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  box-shadow: 0 0 7px rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.128);
 }
 
-.settings_container{
-    height: 85%;
-    width: 95%;
-    padding: 2px 2px 2px 2px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    box-shadow: 0 0 7px rgb(255, 255, 255);
-    background-color: rgba(255, 255, 255, 0.128);
+.settings_container {
+  height: 85%;
+  width: 95%;
+  padding: 2px 2px 2px 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  box-shadow: 0 0 7px rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.128);
 }
 
 .user_settings,
-.game_settings{
-    height: 97%;
-    width: 55%;
-    padding: 0 30px 0 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    box-shadow: 0 0 3px rgb(255, 255, 255);
-    background: linear-gradient(
-      80deg,
-      rgba(0, 15, 23, 0.515) 10%,
-      rgba(0, 34, 24, 0.577) 50%,
-      rgba(0, 15, 23, 0.515) 100%
-    );
+.game_settings {
+  height: 97%;
+  width: 55%;
+  padding: 0 30px 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  box-shadow: 0 0 3px rgb(255, 255, 255);
+  background: linear-gradient(
+    80deg,
+    rgba(0, 15, 23, 0.515) 10%,
+    rgba(0, 34, 24, 0.577) 50%,
+    rgba(0, 15, 23, 0.515) 100%
+  );
 }
 
-.user_settings{
-    width: 35%;
+.user_settings {
+  width: 35%;
 }
-
 
 .game_settings_title,
-.user_settings_title{
-    height: 8%;
-    width: 70%;
-    padding: 0 10px 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.128);
+.user_settings_title {
+  height: 8%;
+  width: 70%;
+  padding: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.128);
 }
 .user_settings_container,
-.game_settings_container{
-    height: 85%;
-    width: 100%;
-    padding: 0 10px 0 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.128);
-    
+.game_settings_container {
+  height: 85%;
+  width: 100%;
+  padding: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.128);
 }
 .user_setting_save,
 .user_settins_mail,
-.user_settins_name{
-    width: 90%;
-    height: 12%;
-    display: flex;
-    flex-direction: column;
-    align-items: first baseline;
-    justify-content: space-between;
+.user_settins_name {
+  width: 90%;
+  height: 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+  justify-content: space-between;
 }
 
-.user_settins_mail input{
-    width: 70%;
-    height: 50%;
+.user_settins_mail input {
+  width: 80%;
+  height: 50%;
 }
 
-.user_settins_password{
-    width: 90%;
-    height: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: first baseline;
-    justify-content: space-between;
+.user_settins_password {
+  width: 90%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: first baseline;
+  justify-content: space-between;
 }
 
-.user_settins_password input{
-    width: 70%;
-    height: 25%;
+.user_settins_password input {
+  width: 80%;
+  height: 25%;
 }
 
-.user_settins_avatar{
-    width: 90%;
-    height: 23%;
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    justify-content: space-between;
+.user_settins_avatar {
+  width: 90%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
-.user_setting_save{
-    align-items: center;
-    justify-content: center;
+.user_setting_save {
+  align-items: center;
+  justify-content: center;
 }
 
-.user_setting_save button{
-    background-color: #f3f7fe;
-    color: #003662;
-    border: none;
-    border-radius: 8px;
-    width: 40%;
-    height: 75%;
-    transition: 0.3s;
-    font-family: "Rubik";
-    cursor: pointer;
-    font-size: 25px;
+.user_setting_save button {
+  background-color: #f3f7fe;
+  color: #003662;
+  border: none;
+  border-radius: 8px;
+  width: 50%;
+  height: 75%;
+  transition: 0.3s;
+  font-family: "Rubik";
+  cursor: pointer;
+  font-size: 25px;
 }
 
 button:hover {
-    box-shadow: 0 0 0 4px #d7d7d75f;
-    background-color: #f7a104;
-  }
-  
-  button:active {
-    box-shadow: none;
-    transform: translate(2px, 2px);
-    color: #000000;
-    background-color: #f7a104;
-    box-shadow: 0 0 0 7px hsla(0, 0%, 84%, 0.373);
-  }
+  box-shadow: 0 0 0 4px #d7d7d75f;
+  background-color: #f7a104;
+}
 
-  label{
-    color: #f7a104;
-    text-shadow: 2px 2px #000000;
-  }
+button:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+  color: #000000;
+  background-color: #f7a104;
+  box-shadow: 0px 0px 7px 7px hsla(0, 0%, 84%, 0.131);
+}
 
+label {
+  color: #f7a104;
+  text-shadow: 2px 2px #000000;
+}
+
+.game_settings_container {
+  margin: 0 0 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}

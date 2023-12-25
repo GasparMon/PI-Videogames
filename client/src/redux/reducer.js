@@ -1,5 +1,6 @@
 import {
   CLEANUSER,
+  DELETEGAME,
   FILTERGENRE,
   FILTERORIGIN,
   GETGAMEBYNAME,
@@ -171,6 +172,8 @@ export default function reducer(state = initialState, action) {
     );
   }
 
+  
+
   return {
     ...state,
     userData: {
@@ -178,6 +181,20 @@ export default function reducer(state = initialState, action) {
       gameData: orderCopyGenre,
     },
   };
+
+  case DELETEGAME:
+
+  const filteredGames = state.userData.DataCopy.filter((element)=>
+  element.id !== action.payload
+  )
+
+  return{
+    ...state,
+    userData: {
+      ...state.userData,
+      DataCopy: filteredGames
+    }
+  }
 
     default:
       return state;

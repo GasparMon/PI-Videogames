@@ -19,7 +19,7 @@ body {
       rgb(255, 255, 255, 0.19) 100%,
       rgb(255, 255, 255, 0.19)
     ),
-    url(./img/back_g1.jpeg) repeat;
+    url(./img/back_003.png) repeat;
   font-family: "Rubik";
   background-size:auto;
   background-position: center;
@@ -47,9 +47,7 @@ body {
     font-size: 15px;
   }
 
-  .detail_container {
-    height: 550px;
-  }
+ 
 
   .game_detail span {
     font-size: 60px;
@@ -67,7 +65,9 @@ body {
   .nav_logout button,
   .filter_container button,
   .submit_button,
-  .back_button {
+  .back_button,
+  .login_button,
+  .signin_button {
     font-size: 17px;
   }
 
@@ -141,6 +141,17 @@ body {
     width: 14px;
     height: 14px;
   }
+
+
+
+  .user_setting_save,
+  .user_settins_mail,
+  .user_settins_name,
+  .user_settins_password,
+    .user_settins_avatar{
+      width: 100%;
+  }
+  
   
 
 }
@@ -166,8 +177,10 @@ body {
   .nav_logout button,
   .filter_container button,
   .submit_button,
-  .back_button {
-    font-size: 12px;
+  .back_button,
+  .signin_button,
+  .login_button {
+    font-size: 15px;
   }
 
   .details_ label {
@@ -231,6 +244,18 @@ body {
     font-size: 20px;
   }
 
+  .user_setting_save button{
+    font-size: 20px
+  }
+
+  .radio-tile {
+    width: 60px;
+    min-height: 60px;
+
+  }
+
+  
+
 }
 
 
@@ -275,8 +300,8 @@ body {
   }
 
   .radio-tile {
-    width: 40px;
-    min-height: 40px;
+    width: 50px;
+    min-height: 50px;
   }
 
   .submit_main_container {
@@ -337,8 +362,10 @@ body {
   .nav_logout button,
   .filter_container button,
   .submit_button,
-  .back_button {
-    font-size: 10px;
+  .back_button,
+  .login_button,
+  .signin_button {
+    font-size: 12px;
   }
 
   .nav_search span {
@@ -418,7 +445,69 @@ body {
     width: 80%;
     height: 80%;
   }
+  .user_setting_save button{
+    font-size: 20px;
+  }
 
+  .settings_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: scroll;
+  }
+
+  .user_settings,
+.game_settings {
+  height: 97%;
+  width: 70%;
+}
+
+.card_option_delete span{
+  font-size: 40px;
+}
+ 
+
+}
+
+@media screen and (max-width: 750px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 8px;
+  }
+
+  .card_option_container label{
+    font-size: 12px;
+  }
+
+.card_option_delete span{
+  font-size: 20px;
+}
+
+.user_settings,
+.game_settings {
+  height: 97%;
+  width: 90%;
+}
+
+.nav_buttons button,
+.nav_logout button,
+.filter_container button
+{
+  font-size: 10px;
+}
  
 
 }

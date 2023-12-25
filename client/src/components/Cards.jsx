@@ -12,7 +12,7 @@ export default function Cards() {
   const { gameData } = useSelector((status) => status.userData);
 
   useEffect(() => {
-    if (gameData.length === 0) {
+  
       const fetchVideogameData = async () => {
         try {
           const videogamesData = await getGames();
@@ -22,8 +22,8 @@ export default function Cards() {
         }
       };
       fetchVideogameData();
-    }
-  }, [dispatch, gameData.length]);
+    
+  }, [dispatch]);
 
   const pageNum = Math.ceil(gameData.length / itemsOnPage);
   const itemsArray = Array.from(

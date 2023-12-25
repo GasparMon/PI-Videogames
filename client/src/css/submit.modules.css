@@ -165,7 +165,7 @@
 
 .radio-input:focus + .radio-tile {
   border-color: #e87f2b;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 4px 5px #b5c9fc85;
 }
 
 .radio-input:focus + .radio-tile:before {
@@ -178,8 +178,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  min-height: 80px;
+  width: 70px;
+  min-height: 70px;
   border-radius: 0.5rem;
   border: 2px solid #b5bfd9;
   background-color: #fff;

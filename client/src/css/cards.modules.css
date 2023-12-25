@@ -1,5 +1,5 @@
 .cards_container {
-  height: 80%;
+  height: 77%;
   width: 98%;
   position: absolute;
   margin: 0 0 0 10px;
@@ -14,11 +14,11 @@
   flex-direction: row;
   background: linear-gradient(
     180deg,
-    rgba(1, 1, 1, 0.741) 10%,
-    rgba(84, 84, 84, 0.741) 50%,
-    rgba(0, 0, 0, 0.741) 100%
+    rgba(1, 1, 1, 0.296) 10%,
+    rgba(84, 84, 84, 0.296) 50%,
+    rgba(0, 0, 0, 0.296) 100%
   );
-
+  backdrop-filter: blur(5px);
  
     animation: fadeIn 1s ease forwards;
 
