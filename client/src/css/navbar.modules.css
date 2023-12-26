@@ -40,7 +40,7 @@
   border-radius: 10px;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.991);
+
   border: none;
   cursor: pointer;
 }
@@ -67,6 +67,7 @@
 
 .nav_profile button:active {
   transform: translate(1px, 1px);
+  box-shadow: 0 0 7px 7px #d7d7d781;
 }
 
 .nav_logo {
@@ -227,7 +228,7 @@ button:active {
   transform: translate(2px, 2px);
   color: #000000;
   background-color: #fafafa;
-  box-shadow: 0 0 0 7px #d7d7d75f;
+  box-shadow: 0 0 7px 7px #d7d7d717;
 }
 
 .button_container {

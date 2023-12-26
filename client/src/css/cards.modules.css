@@ -73,7 +73,7 @@
   transform: translate(2px, 2px);
   color: #000000;;
   background-color:#fafafa;
-  box-shadow: 0 0 0 7px #d7d7d75f;
+  box-shadow: 0 0 7px 7px #d7d7d717;
 }
 
 .page_button:disabled {

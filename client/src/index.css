@@ -151,7 +151,11 @@ body {
     .user_settins_avatar{
       width: 100%;
   }
-  
+  .user_setting_save button,
+  .delete_button{
+
+    font-size: 20px;
+}
   
 
 }

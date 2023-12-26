@@ -462,6 +462,6 @@ select:hover {
   transform: translate(2px, 2px);
   color: #ffffff;
   background-color: #d63838e0;
-  box-shadow: 0 0 0 7px #d7d7d75f;
+  box-shadow: 0 0 7px 7px #d7d7d717;
 }
 

@@ -7,6 +7,7 @@ const postGame = require('../controllers/postGame');
 const postUser = require('../controllers/postUser');
 const getUser = require('../controllers/getUser');
 const deleteGame = require('../controllers/deleteGame');
+const putUser = require('../controllers/putUser');
 
 
 const router = require('express').Router();
@@ -19,6 +20,7 @@ router.post("/login", getUser);
 router.get("/genres", getGenre);
 router.post("/videogames", postGame);
 router.delete("/videogames/:idVideogame", deleteGame);
+router.put("/videogames/user", putUser)
 
 
 module.exports = router;

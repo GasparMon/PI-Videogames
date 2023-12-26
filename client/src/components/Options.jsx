@@ -1,40 +1,49 @@
 import { useEffect, useState } from "react";
 import "../css/options.modules.css";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import CardOptions from "./CardOptions";
+import putUser from "../Handlers/putUser";
+
 
 
 export default function Options() {
-  const userData = useSelector((state) => state.userData);
-  const [userSettings, setUserSettings] = useState({
-    email: "",
-    currentPassword: "",
-    newPassword: "",
+  const [newInfo, setnewInfo] = useState({
+    updatedEmail: "",
+    updatedPassword: "",
     avatar: "",
   });
 
-  const UserGames = userData.DataCopy.filter(
-    (element) => element.id.length > 10
-  );
-
-  useEffect(() => {
-    setUserSettings({
-      ...userSettings,
-      email: userData.email,
-    });
-  }, [userData.email]);
-
   const handleFill = (event) => {
     const { name, value } = event.target;
-
-    setUserSettings({
-      ...userSettings,
+    setnewInfo({
+      ...newInfo,
       [name]: value,
     });
   };
 
+  const handleChange = async () => {
 
+    try{
+
+      setnewInfo({
+        ...newInfo,
+        id: userData.id
+      })
+
+      const response = await putUser(newInfo)
+
+      console.log(response)
+
+    }catch(error){
+      alert(error.message)
+    }
+  }
+
+  const userData = useSelector((state) => state.userData);
+  const UserGames = userData.DataCopy.filter(
+    (element) => element.id.length > 10
+  );
 
   return (
     <div className="options_container">
@@ -53,30 +62,24 @@ export default function Options() {
                 <h3>{userData.username}</h3>
               </div>
               <div className="user_settins_mail">
-                <label>Email :</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="You must enter your New Password"
-                  value={userSettings.email}
-                  onChange={handleFill}
-                ></input>
+                <label>Current Email :</label>
+                <h3>{userData.email}</h3>
               </div>
               <div className="user_settins_password">
-                <label>Current Password :</label>
+                <label>New Email :</label>
                 <input
-                  type="password"
-                  name="currentPassword"
-                  placeholder="You must enter your Password"
-                  value={userSettings.currentPassword}
+                  type="email"
+                  name="updatedEmail"
+                  placeholder="You must enter your New Email"
                   onChange={handleFill}
+                  value={newInfo.updatedEmail}
                 ></input>
                 <label>New Password:</label>
                 <input
                   type="password"
-                  name="newPassword"
+                  name="updatedPassword"
                   placeholder="You must enter your New Password"
-                  value={userSettings.newPassword}
+                  value={newInfo.updatedPassword}
                   onChange={handleFill}
                 ></input>
               </div>
@@ -134,7 +137,6 @@ export default function Options() {
                       </div>
                     </label>
                   </div>
-
                   <div class="radio-inputs">
                     <label>
                       <input
@@ -151,7 +153,6 @@ export default function Options() {
                       </div>
                     </label>
                   </div>
-
                   <div class="radio-inputs">
                     <label>
                       <input
@@ -171,26 +172,25 @@ export default function Options() {
                 </div>
               </div>
               <div className="user_setting_save">
-                <button>Save Settings</button>
+                <button onClick={handleChange}>Save Settings</button>
               </div>
             </div>
           </div>
-
           <div className="game_settings">
             <div className="game_settings_title">
               <h3>Videogame Settings</h3>
             </div>
             <div className="game_settings_container">
-                {UserGames.map((element)=>(
-                    <CardOptions
-                    key={element.id}
-                    id={element.id}
-                    name={element.name}
-                    background_image={element.background_image}
-                    rating={element.rating}
-                    released={element.released}
-                    />
-                ))}
+              {UserGames.map((element) => (
+                <CardOptions
+                  key={element.id}
+                  id={element.id}
+                  name={element.name}
+                  background_image={element.background_image}
+                  rating={element.rating}
+                  released={element.released}
+                />
+              ))}
             </div>
           </div>
         </div>
