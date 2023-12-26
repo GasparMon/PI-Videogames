@@ -8,13 +8,16 @@ import {
   GETVIDEOGAMES,
   ORDERNAME,
   ORDERRATING,
+  UPDATEUSER,
 } from "./types";
 
 const initialState = {
   userData: {
+    id:"",
     username: "",
     avatar: "",
     email:"",
+    password:"",
     gameData: [],
     gameFiltered: [],
     DataCopy: [],
@@ -28,9 +31,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         userData: {
           ...state.userData,
+          id: action.payload.id,
           username: action.payload.username,
           avatar: action.payload.avatar,
           email: action.payload.email,
+          password: action.payload.password,
         },
       };
     case CLEANUSER:
@@ -195,6 +200,18 @@ export default function reducer(state = initialState, action) {
       DataCopy: filteredGames
     }
   }
+
+  case UPDATEUSER:
+
+  return {
+    ...state,
+    userData: {
+      ...state.userData,
+      avatar: action.payload.avatar,
+      email: action.payload.email,
+      password: action.payload.password,
+    },
+  };
 
     default:
       return state;

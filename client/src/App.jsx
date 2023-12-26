@@ -35,9 +35,9 @@ function App() {
     
       if (data.user) {
         const{user} = data
-        const{username, avatar, email} = user
+        const{id, username, avatar, email} = user
 
-        dispatch(getUser({username, avatar, email}))
+        dispatch(getUser({id, username, avatar, email}))
         setAccess(true);
         navigate("/home");
       } else {

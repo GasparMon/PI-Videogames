@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 import "../css/options.modules.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import CardOptions from "./CardOptions";
 import putUser from "../Handlers/putUser";
+import { updateUser } from "../redux/actions";
 
 
 
 export default function Options() {
+  const dispatch = useDispatch()
+  const userData = useSelector((state) => state.userData)
   const [newInfo, setnewInfo] = useState({
+    id:"",
     updatedEmail: "",
     updatedPassword: "",
-    avatar: "",
+    newAvatar: "",
   });
+
+  
 
   const handleFill = (event) => {
     const { name, value } = event.target;
@@ -22,28 +28,42 @@ export default function Options() {
     });
   };
 
-  const handleChange = async () => {
+  useEffect(()=> {
+    setnewInfo({
+      ...newInfo,
+      id: userData.id
+    })
+
+  },[])
+
+  const handleUpdate = async () => {
 
     try{
 
+
+
+      const newUser = await putUser(newInfo)
+      const {email, password, avatar} = newUser
+    
+      dispatch(updateUser({email, password, avatar}))
+     
       setnewInfo({
         ...newInfo,
-        id: userData.id
+        updatedEmail: "",
+        updatedPassword: "",
+        newAvatar: "",
       })
 
-      const response = await putUser(newInfo)
-
-      console.log(response)
+      alert("Use has been updated")
 
     }catch(error){
       alert(error.message)
     }
   }
 
-  const userData = useSelector((state) => state.userData);
-  const UserGames = userData.DataCopy.filter(
+  const UserGames = userData.DataCopy ? userData.DataCopy.filter(
     (element) => element.id.length > 10
-  );
+  ) : [];
 
   return (
     <div className="options_container">
@@ -92,7 +112,7 @@ export default function Options() {
                       <input
                         class="radio-input"
                         type="radio"
-                        name="avatar"
+                        name="newAvatar"
                         onChange={handleFill}
                         value="a1"
                       />
@@ -109,7 +129,7 @@ export default function Options() {
                       <input
                         class="radio-input"
                         type="radio"
-                        name="avatar"
+                        name="newAvatar"
                         onChange={handleFill}
                         value="a2"
                       />
@@ -126,7 +146,7 @@ export default function Options() {
                       <input
                         class="radio-input"
                         type="radio"
-                        name="avatar"
+                        name="newAvatar"
                         onChange={handleFill}
                         value="a3"
                       />
@@ -142,7 +162,7 @@ export default function Options() {
                       <input
                         class="radio-input"
                         type="radio"
-                        name="avatar"
+                        name="newAvatar"
                         onChange={handleFill}
                         value="a4"
                       />
@@ -158,7 +178,7 @@ export default function Options() {
                       <input
                         class="radio-input"
                         type="radio"
-                        name="avatar"
+                        name="newAvatar"
                         onChange={handleFill}
                         value="a5"
                       />
@@ -172,7 +192,7 @@ export default function Options() {
                 </div>
               </div>
               <div className="user_setting_save">
-                <button onClick={handleChange}>Save Settings</button>
+                <button onClick={handleUpdate}>Save Settings</button>
               </div>
             </div>
           </div>
