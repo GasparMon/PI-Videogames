@@ -13,7 +13,7 @@ const putUser = async (newInfo) => {
     );
     return data;
   } catch (error) {
-    console.error("Error in putUser:", error);
+
     return { error: error.message };
   }
 };

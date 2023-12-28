@@ -12,10 +12,10 @@ const createUser = async (submitUser) => {
     const isCreated = data[1];
 
     if (isCreated) {
-      alert("User has been created");
+      
+      return true
     }
 
-    return isCreated;
   } catch (error) {
     alert(error.message);
     return false;
