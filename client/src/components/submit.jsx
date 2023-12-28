@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../css/submit.modules.css";
 import { Link, useNavigate } from "react-router-dom";
 import createUser from "../Handlers/submitUser";
+import validation from "../utils/validations";
 
 export default function Submit(props) {
   const navigate = useNavigate();
@@ -12,6 +13,13 @@ export default function Submit(props) {
     avatar: null,
   });
 
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    emailValidation:false,
+    passwordValidation:false,
+  })
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -19,10 +27,19 @@ export default function Submit(props) {
       ...submitUser,
       [name]: value,
     });
+
+    setErrors(validation(
+      {
+        ...submitUser,
+        [name] : value,
+      }
+    ))
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    console.log("Hola")
 
     const isUserCreated = await createUser(submitUser);
 
@@ -69,6 +86,15 @@ export default function Submit(props) {
                 onChange={handleChange}
                 value={submitUser.email}
               />
+
+            </div>
+            <div className="submit_error">
+              <p>
+              {!errors.email
+                ?"You must enter a email."
+                : errors.email
+              }
+              </p>
             </div>
             <div className="submit_password">
               <h3>Password </h3>
@@ -82,7 +108,10 @@ export default function Submit(props) {
             </div>
             <div className="submit_error">
               <p>
-                Password must include at least one uppercase letter & one digit
+                {!errors.password
+                ?"Password must include at least one uppercase letter and one digit."
+                : errors.password
+              }
               </p>
             </div>
             <h3>Avatar </h3>
@@ -177,7 +206,11 @@ export default function Submit(props) {
             </div>
 
             <div className="submit_buttons">
-              <button className="submit_button" onClick={handleSubmit}>
+              <button 
+              className="submit_button" 
+              onClick={handleSubmit}
+              disabled={!errors.emailValidation || !errors.passwordValidation || !submitUser.username || !submitUser.avatar}
+              >
                 Submit
               </button>
               <button className="back_button" onClick={()=> navigate("/")}>

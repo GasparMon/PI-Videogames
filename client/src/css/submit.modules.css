@@ -267,6 +267,7 @@
   font-size: 25px;
 }
 
+
 .back_button {
   background-color: #f3f7fe;
   color: #003662;
@@ -301,5 +302,12 @@ p {
   to {
     opacity: 1;
   }
+}
+
+.submit_error{
+  width: 100%;
+  height: 2%;
+  color: #e87f2b;
+  text-shadow: 2px 1px #000000;
 }
 

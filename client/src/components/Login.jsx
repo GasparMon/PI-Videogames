@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../css/login.modules.css";
 import { useState } from "react";
+import validation from "../utils/validations";
 
 export default function Login(props) {
   const navigate = useNavigate()
@@ -11,6 +12,13 @@ export default function Login(props) {
     password: "",
   });
 
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    emailValidation:false,
+    passwordValidation:false,
+  })
+
   const handleFill = (event) => {
     const { name, value } = event.target;
 
@@ -18,6 +26,13 @@ export default function Login(props) {
       ...userData,
       [name]: value,
     });
+
+    setErrors(validation(
+      {
+        ...userData,
+        [name] : value,
+      }
+    ))
   };
 
   const hadleSubmit = (event) => {
@@ -65,6 +80,7 @@ export default function Login(props) {
                 type="submit"
                 className="login_button"
                 onClick={hadleSubmit}
+                disabled={!errors.emailValidation || !errors.passwordValidation}
               >
                 Login
               </button>
