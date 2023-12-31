@@ -10,10 +10,12 @@ const getGame = async (id) => {
     const { data } = response;
 
     if (data) {
+
       return data;
     }
   } catch (error) {
-    alert(error.message);
+
+    return (error.message);
   }
 };
 

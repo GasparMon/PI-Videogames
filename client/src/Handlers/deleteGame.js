@@ -11,13 +11,14 @@ const DeleteGame= async (id) =>{
 
     const {data} = response
 
-    if (data) {
+    if (data.status) {
+
         return data;
       }
 
     }catch(error){
 
-        return 
+        return (error.message)
 
     }
 } 

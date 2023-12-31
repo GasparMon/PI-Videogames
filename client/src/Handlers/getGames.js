@@ -13,7 +13,8 @@ const getGames = async (req, res) =>{
             return(data)
         }
     }catch(error){
-        alert(error.message);
+        
+        alert(error.message)
     }
 } 
 
