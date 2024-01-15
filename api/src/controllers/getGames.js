@@ -46,8 +46,10 @@ const getGames = async (req, res) => {
     }
 
     return res.status(400).send(`Error to get data from ${URL}`);
+
   } catch (error) {
-    return res.status(500).send(error.message);
+    
+    return res.status(500).send("Internal Server Error");
   }
 };
 

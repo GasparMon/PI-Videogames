@@ -12,17 +12,21 @@ const isUUID = (str) => {
 };
 
 const getGameById = async (req, res) => {
+
   try {
     let game = {};
     const { idVideogame } = req.params;
-
+    
     if (isUUID(idVideogame)) {
-      game = await Videogame.findByPk(idVideogame, {
+    
+      let data = await Videogame.findByPk(idVideogame, {
         include: Genres,
       });
+      game = data.dataValues;
     } else {
-      const { data } = await axios.get(`${URL}/${idVideogame}?${apiKey}`);
 
+      const { data } = await axios.get(`${URL}/${idVideogame}?${apiKey}`);
+      
       if (data?.name) {
         const {
           id,
@@ -50,14 +54,20 @@ const getGameById = async (req, res) => {
           metacritic,
         };
       }
+      
     }
 
-    return game && game.name
-      ? res.status(200).json(game)
-      : res.status(404).send("The game has not been found in the database");
+    if(game.id){
+
+      return res.status(200).json(game)
+    }
+
+
+      return res.status(404).send("The game has not been found in the database");
+
   } catch (error) {
-    console.error(error);
-    return res.status(500).send("Internal Server Error");
+    
+    return res.status(500).json(error.message);
   }
 };
 

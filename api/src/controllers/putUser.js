@@ -8,7 +8,7 @@ const putUser = async (req, res) => {
         { email: updatedEmail, password: updatedPassword, avatar: newAvatar }, 
         { where: {id}}
         );
-
+  
         if(response[0] === 1){
 
           const userUpdate = await User.findByPk(id)

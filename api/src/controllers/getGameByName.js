@@ -17,45 +17,58 @@ const getGameByName = async (req, res) => {
       },
       include: Genres,
     });
-    
 
     if (filteredGames.count < 15) {
-
-
       const { data } = await axios.get(`${URL}${name}&${apiKey}`);
 
       if (data?.results) {
         const { results } = data;
-      
+
         filteredGames.rows = filteredGames.rows.concat(
-          results.map(
-            ({
-              id,
-              name,
-              platforms,
-              background_image,
-              genres,
-              released,
-              rating,
-              metacritic,
-            }) => ({
-              id,
-              name,
-              platforms,
-              background_image,
-              Genres: genres,
-              released,
-              rating,
-              metacritic,
-            })
-          )
-          .filter(({ id, name, platforms, background_image, Genres, released, rating, metacritic }) => 
-            id !== null && name !== null && platforms.length !== 0 && background_image !== null && Genres.length !== 0 && released !== null &&
-            Date.parse(released) > Date.parse("2000-01-01") && rating > 1 && metacritic !== null
-          )
+          results
+            .map(
+              ({
+                id,
+                name,
+                platforms,
+                background_image,
+                genres,
+                released,
+                rating,
+                metacritic,
+              }) => ({
+                id,
+                name,
+                platforms,
+                background_image,
+                Genres: genres,
+                released,
+                rating,
+                metacritic,
+              })
+            )
+            // .filter(
+            //   ({
+            //     id,
+            //     name,
+            //     platforms,
+            //     background_image,
+            //     Genres,
+            //     released,
+            //     rating,
+            //     metacritic,
+            //   }) =>
+            //     id !== null &&
+            //     name !== null &&
+            //     platforms.length !== 0 &&
+            //     background_image !== null &&
+            //     Genres.length !== 0 &&
+            //     released !== null &&
+            //     rating > 1 &&
+            //     metacritic !== null
+            // )
         );
       }
-      
     }
 
     if (filteredGames.rows.length === 0) {
@@ -66,11 +79,12 @@ const getGameByName = async (req, res) => {
 
     const { rows } = filteredGames;
 
-    const gamesbyName = rows.slice(0,15)
+    const gamesbyName = rows.slice(0, 15);
 
     return res.status(200).json(gamesbyName);
   } catch (error) {
-    return res.status(500).send(error.message);
+    
+    return res.status(500).send("Internal Server Error");
   }
 };
 
