@@ -6,7 +6,7 @@
 
 .img_container {
   height: 100vh;
-  background-image: url(/img/back_g3.jpeg);
+  background-image: url(img/back_g3.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -14,7 +14,7 @@
 
 .login_container {
   height: 100vh;
-  background-image: url(/img/back_g1.jpeg);
+  background-image: url(img/back_g1.jpeg);
   background-size: cover;
   background-repeat: repeat-x;
   display: grid;
