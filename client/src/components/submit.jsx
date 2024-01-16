@@ -65,7 +65,7 @@ export default function Submit(props) {
       <div className="submit_container">
         <div>
           <div className="main_title_container">
-            <img src="logo_game.png"></img>
+            <img src="./../../img/logo_game.png"></img>
             <h1>Game Room App</h1>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function Submit(props) {
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
-                        <img src="/av_01.png" />
+                        <img src="/../../img/av_01.png" />
                       </div>
                     </div>
                   </label>
@@ -153,7 +153,7 @@ export default function Submit(props) {
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
-                        <img src="./av_02.png" />
+                        <img src="../../img/av_02.png" />
                       </div>
                     </div>
                   </label>
@@ -170,7 +170,7 @@ export default function Submit(props) {
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
-                        <img src="/img/av_03.png" />
+                        <img src="../img/av_03.png" />
                       </div>
                     </div>
                   </label>
@@ -187,7 +187,7 @@ export default function Submit(props) {
                     />
                     <div class="radio-tile">
                       <div class="radio-icon">
-                        <img src="./img/av_04.png" />
+                        <img src="../img/av_04.png" />
                       </div>
                     </div>
                   </label>

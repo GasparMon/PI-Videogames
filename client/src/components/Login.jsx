@@ -47,7 +47,7 @@ export default function Login(props) {
       <div className="login_container">
         <div>
           <div className="main_title_container">
-            <img src="img/logo_game.png"></img>
+            <img src="../../../img/logo_game.png"></img>
             <h1>Game Room App</h1>
           </div>
         </div>
