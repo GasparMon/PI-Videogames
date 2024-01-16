@@ -1,6 +1,7 @@
 const postGenre = require("./postGenre");
 
 const getGenre = async (req, res) => {
+  
   try {
     const allGenres = await postGenre(req, res);
 
