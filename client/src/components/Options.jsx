@@ -141,7 +141,7 @@ export default function Options() {
                       />
                       <div class="radio-tile">
                         <div class="radio-icon">
-                          <img src="./img/av_01.png" />
+                          <img src="../../img/av_01.png" />
                         </div>
                       </div>
                     </label>
@@ -158,7 +158,7 @@ export default function Options() {
                       />
                       <div class="radio-tile">
                         <div class="radio-icon">
-                          <img src="./img/av_02.png" />
+                          <img src="../../img/av_02.png" />
                         </div>
                       </div>
                     </label>
@@ -175,7 +175,7 @@ export default function Options() {
                       />
                       <div class="radio-tile">
                         <div class="radio-icon">
-                          <img src="./img/av_03.png" />
+                          <img src="../../img/av_03.png" />
                         </div>
                       </div>
                     </label>
@@ -191,7 +191,7 @@ export default function Options() {
                       />
                       <div class="radio-tile">
                         <div class="radio-icon">
-                          <img src="./img/av_04.png" />
+                          <img src="../../img/av_04.png" />
                         </div>
                       </div>
                     </label>
@@ -207,7 +207,7 @@ export default function Options() {
                       />
                       <div class="radio-tile">
                         <div class="radio-icon">
-                          <img src="./img/av_05.png" />
+                          <img src="../../img/av_05.png" />
                         </div>
                       </div>
                     </label>

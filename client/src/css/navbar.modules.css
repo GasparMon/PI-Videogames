@@ -46,23 +46,23 @@
 }
 
 .a1 {
-  background-image: url(./img/av_01.png);
+  background-image: url(../../img/av_01.png);
 }
 .a2 {
-  background-image: url(./img/av_02.png);
+  background-image: url(../../img/av_02.png);
 }
 .a3 {
-  background-image: url(./img/av_03.png);
+  background-image: url(../../img/av_03.png);
 }
 .a4 {
-  background-image: url(./img/av_04.png);
+  background-image: url(../../img/av_04.png);
 }
 
 .a5 {
-  background-image: url(./img/av_05.png);
+  background-image: url(../../img/av_05.png);
 }
 .a6 {
-  background-image: url(./img/av_06.png);
+  background-image: url(../../img/av_06.png);
 }
 
 .nav_profile button:active {

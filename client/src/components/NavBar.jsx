@@ -145,7 +145,7 @@ export default function NavBar(props) {
           <h3>{userData.username}</h3>
         </div>
         <div className="nav_logo">
-          <img src="./img/logo_nav.png"></img>
+          <img src="../../img/logo_nav.png"></img>
           <h3>Game Room App</h3>
         </div>
         <div className="nav_search">
