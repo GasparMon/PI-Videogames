@@ -11,7 +11,7 @@ const getGenres = async () =>{
         console.log(data)
 
         if(data){
-            alert(data)
+            
             return(data)
         }
 
