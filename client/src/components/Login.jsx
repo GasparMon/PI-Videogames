@@ -3,7 +3,6 @@ import "../css/login.modules.css";
 import { useState } from "react";
 import validation from "../utils/validations";
 
-import "../../img/logo_game.png"
 
 export default function Login(props) {
   const navigate = useNavigate()
@@ -48,7 +47,7 @@ export default function Login(props) {
       <div className="login_container">
         <div>
           <div className="main_title_container">
-            <img src={`../../img/logo_game.png`}></img>
+            <img src={`/img/logo_game.png`}></img>
             <h1>Game Room App</h1>
           </div>
         </div>
