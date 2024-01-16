@@ -9,7 +9,7 @@ let GamesDB = [];
 
 const getGames = async (req, res) => {
   try {
-    while (idPage < 6) {
+    while (idPage < 8) {
       const { data } = await axios.get(`${URL}?${apiKey}&page=${idPage}`);
 
       if (data.results) {

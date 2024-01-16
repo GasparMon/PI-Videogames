@@ -40,10 +40,10 @@ function App() {
         setAccess(true);
         navigate("/home");
       } else {
-        alert("Email o contraseña inválidos");
+        alert("Error in your credentials, please try again.");
       }
     } catch {
-      alert("Error en tus credenciales, vuelve a intentarlo");
+      alert("Error in your credentials, please try again.");
     }
   };
 

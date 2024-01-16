@@ -10,14 +10,9 @@ const VideogameModel = require("./models/Videogame");
 
 
 const sequelize = new Sequelize(`postgres://${userBD}:${passwordBD}@${hostDB}/${database}`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  logging: false, 
+  native: false, 
 });
-
-// const sequelize = new Sequelize(db_deploy, {
-//   logging: false, // set to console.log to see the raw SQL queries
-//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-// });
 
 GenresModel(sequelize);
 UserModel(sequelize);
