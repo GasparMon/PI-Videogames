@@ -1,8 +1,21 @@
 import { useState } from "react";
 import "../css/form.modules.css";
 import createGame from "../Handlers/createGame";
+import { getVideogames } from "../redux/actions";
+import { useDispatch } from "react-redux";
+import getGames from "../Handlers/getGames";
 
 export default function Form() {
+  const dispatch = useDispatch();
+
+  const videogameData = async () => {
+    try {
+      const videogamesData = await getGames();
+      dispatch(getVideogames(videogamesData));
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   const [newVideogame, SetNewVideogame] = useState({
     name: "",
@@ -109,6 +122,8 @@ export default function Form() {
         released: new Date(),
         rating: "",
       });
+
+      await videogameData();
     }
   };
 

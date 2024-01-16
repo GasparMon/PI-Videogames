@@ -1,12 +1,21 @@
 import { useDispatch } from "react-redux";
 import "../css/cardOptions.modules.css";
-import { deleteGame } from "../redux/actions";
-import assert from "assert";
+import { deleteGame, getVideogames } from "../redux/actions";
 import DeleteGame from "../Handlers/deleteGame";
+import getGames from "../Handlers/getGames";
 
 export default function CardOptions(props) {
 
     const dispatch = useDispatch();
+
+    const videogameData = async () => {
+      try {
+        const videogamesData = await getGames();
+        dispatch(getVideogames(videogamesData));
+      } catch (error) {
+        alert(error.message);
+      }
+    };
 
     const handleDelete = async (event) => {
         try {
@@ -17,7 +26,8 @@ export default function CardOptions(props) {
           const data = await DeleteGame(id);
 
             dispatch(deleteGame(id))
-
+            
+            await videogameData();
              return alert("Game has been deleted")
 
           

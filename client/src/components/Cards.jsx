@@ -8,7 +8,7 @@ import getGenres from "../Handlers/getGenres";
 
 export default function Cards() {
 
-  const fetchVideogameData = async () => {
+  const videogameData = async () => {
     try {
       const videogamesData = await getGames();
       dispatch(getVideogames(videogamesData));
@@ -28,12 +28,18 @@ export default function Cards() {
       if (gameData.length === 0) {
         const response = await getGenres();
         console.log(response)
-        await fetchVideogameData();
+        await videogameData();
       } }
 
     fetchData();
     
   }, [dispatch]);
+
+  useEffect(() => {
+    
+  
+    setPagePosition(1);
+  }, [gameData]);
 
   const pageNum = Math.ceil(gameData.length / itemsOnPage);
   const itemsArray = Array.from(

@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import "../css/options.modules.css";
 import { useDispatch, useSelector } from "react-redux";
-
 import CardOptions from "./CardOptions";
 import putUser from "../Handlers/putUser";
 import { updateUser } from "../redux/actions";
-import validation from "../utils/validations";
 import optionValidation from "../utils/optionValidations";
 
 export default function Options() {
   const dispatch = useDispatch();
+
   const userData = useSelector((state) => state.userData);
   const [newInfo, setnewInfo] = useState({
     id: "",

@@ -9,7 +9,7 @@ import {
   orderName,
   orderRating,
 } from "../redux/actions";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import getGameByName from "../Handlers/getGamebyName";
 
 export default function NavBar(props) {
@@ -23,14 +23,15 @@ export default function NavBar(props) {
   });
 
   const [filter, setFilter] = useState(false);
+  const [selectedGenre, setSelectedGenre] = useState("All");
 
   const handleLogout = () => {
     dispatch(cleanUser());
     navigate("/");
   };
+
   const handleChange = (event) => {
     const { value } = event.target;
-
     setSearchName({
       ...searchName,
       name: value,
@@ -47,72 +48,44 @@ export default function NavBar(props) {
       const { name } = searchName;
       const gameData = await getGameByName(name);
 
-
-      if(gameData[0].id){
+      if (gameData[0].id) {
         dispatch(gamebyName(gameData));
 
-      setSearchName({
-        ...searchName,
-        name: "",
-      });
+        setSearchName({
+          ...searchName,
+          name: "",
+        });
 
-      navigate("/search");
+        navigate("/search");
 
-      return
+        return;
       }
-      
-    } catch(error) {
-      
-      return(error.message)
-      
+    } catch (error) {
+      return error.message;
     }
   };
 
   const handleOrderName = (event) => {
     const { value } = event.target;
-
     dispatch(orderName(value));
   };
 
   const handleOrderRating = (event) => {
     const { value } = event.target;
-
     dispatch(orderRating(value));
   };
 
   const handleOrigin = (event) => {
     const { value } = event.target;
-
+    setSelectedGenre("All");
     dispatch(filterOrigin(value));
   };
 
   const handleGenre = (event) => {
     const { value } = event.target;
-
+    setSelectedGenre(value);
     dispatch(filterGenre(value));
-
-    console.log(value);
   };
-
-  useEffect(() => {
-    return () => {
-      if (filter) {
-        setFilter(false);
-      }
-    };
-  }, []);
-
-  const filterRender = location.pathname === "/home";
-  const homeRender = location.pathname !== "/home";
-
-  const handleFilters = () => {
-    if (filter) {
-      setFilter(false);
-    } else {
-      setFilter(true);
-    }
-  };
-
   const genres = [
     "Action",
     "Indie",
@@ -145,7 +118,7 @@ export default function NavBar(props) {
           <h3>{userData.username}</h3>
         </div>
         <div className="nav_logo">
-          <img src="../../img/logo_nav.png"></img>
+          <img src="../../img/logo_nav.png" alt="logo"></img>
           <h3>Game Room App</h3>
         </div>
         <div className="nav_search">
@@ -157,17 +130,21 @@ export default function NavBar(props) {
             onChange={handleChange}
           />
 
-          <span class="material-symbols-outlined" onClick={handleSearch}>
+          <span
+            className="material-symbols-outlined"
+            onClick={handleSearch}
+            role="button"
+          >
             pageview
           </span>
         </div>
         <div className="nav_buttons">
-          {filterRender && (
-            <button className="filter_button" onClick={handleFilters}>
+          {location.pathname === "/home" && (
+            <button className="filter_button" onClick={() => setFilter(!filter)}>
               Filters
             </button>
           )}
-          {homeRender && (
+          {location.pathname !== "/home" && (
             <button className="filter_button" onClick={() => navigate("/home")}>
               Home
             </button>
@@ -176,7 +153,8 @@ export default function NavBar(props) {
           <button
             className="create_button"
             onClick={() => {
-              setFilter(false), navigate("/form");
+              setFilter(false);
+              navigate("/form");
             }}
           >
             Create
@@ -188,7 +166,7 @@ export default function NavBar(props) {
           </button>
         </div>
       </div>
-      {filter && filterRender && (
+      {filter && (
         <div className="filter_container">
           <div className="button_container">
             <button
@@ -240,11 +218,18 @@ export default function NavBar(props) {
             </button>
           </div>
 
-          <select id="rating" name="rating" onChange={handleGenre}>
+          <select
+            id="rating"
+            name="rating"
+            onChange={handleGenre}
+            value={selectedGenre}
+          >
             <option disabled selected value="">
               Select Genre
             </option>
-            <option value="All">All</option>
+            <option key="All" value="All">
+              All
+            </option>
             {genres.map((genre, index) => (
               <option key={index} value={genre}>
                 {genre}
@@ -253,7 +238,7 @@ export default function NavBar(props) {
           </select>
           <div className="button_container">
             <button className="button_all" value="All" onClick={handleOrigin}>
-              All
+              Reset
             </button>
           </div>
         </div>
