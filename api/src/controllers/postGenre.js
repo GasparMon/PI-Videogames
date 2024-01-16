@@ -6,7 +6,7 @@ require("dotenv").config();
 const apiKey = process.env.API_KEY;
 const URL = process.env.URL_GENRE;
 
-const postGenre = async (req, res) => {
+const postGenre = async () => {
   try {
     const countGenre = await Genres.count();
 
@@ -16,21 +16,25 @@ const postGenre = async (req, res) => {
       if (data) {
         const { results } = data;
 
-        results.forEach(async (element) => {
+        const promises = results.map(async (element) => {
           try {
             await Genres.findOrCreate({
               where: { name: element.name },
             });
           } catch (error) {
-            res.status(500).send(error.message);
+            throw new Error(error.message);
           }
         });
+
+        await Promise.all(promises);
+
+        return "Genres has been created";
       }
     }
 
-    res.status(200).send("Genres has been created");
+    return "Genres already exist";
   } catch (error) {
-    res.status(500).send(error.message);
+    throw new Error(error.message);
   }
 };
 

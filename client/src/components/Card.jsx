@@ -9,7 +9,7 @@ export default function Card(props) {
         <>
           <div className="card_img">
             <Link to={`/detail/${props.id}`} className="Link_detail">
-              <img src={`./img/${props.image}`} alt={props.name} />
+              <img src={`/img/${props.image}`} alt={props.name} />
             </Link>
           </div>
           <div className="card_title">
@@ -42,7 +42,7 @@ export default function Card(props) {
               ) {
                 return (
                   <div className="platform_img" key={index}>
-                    <img src={`./img/${element}.png`} alt={element} />
+                    <img src={`/img/${element}.png`} alt={element} />
                   </div>
                 );
               } else {
@@ -92,7 +92,7 @@ export default function Card(props) {
                 return (
                   <div className="platform_img" key={index}>
                     <img
-                      src={`./img/${element.platform.name}.png`}
+                      src={`/img/${element.platform.name}.png`}
                       alt={element.platform.name}
                     />
                   </div>

@@ -30,7 +30,7 @@ export default function CardOptions(props) {
   return (
     <div className="card_option_container">
       <div className="card_option_img">
-        <img src={`./img/${props.background_image}`}></img>
+        <img src={`/img/${props.background_image}`}></img>
       </div>
       <div className="card_option_info">
       <div className="card_option_name">

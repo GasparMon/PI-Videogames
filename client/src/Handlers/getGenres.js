@@ -1,21 +1,24 @@
 import axios from "axios"
 const url = import.meta.env.VITE_URL_HOST
-const getGames = async () =>{
+const getGenres = async () =>{
 
     try{
 
-        const response = await axios.get(`${url}/mygameroomapp/videogames`)
+        const response = await axios.get(`${url}/mygameroomapp/genres`)
         
         const {data} = response;
+
+        console.log(data)
 
         if(data){
 
             return(data)
         }
+
     }catch(error){
         
         alert(error.message)
     }
 } 
 
-export default getGames
+export default getGenres

@@ -36,7 +36,6 @@ function App() {
       if (data.user) {
         const{user} = data
         const{id, username, avatar, email} = user
-
         dispatch(getUser({id, username, avatar, email}))
         setAccess(true);
         navigate("/home");

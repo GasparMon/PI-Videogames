@@ -4,6 +4,7 @@ import "../css/cards.modules.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getVideogames } from "../redux/actions";
 import Card from "./Card";
+import getGenres from "../Handlers/getGenres";
 
 export default function Cards() {
 
@@ -22,9 +23,11 @@ export default function Cards() {
   const { gameData } = useSelector((status) => status.userData);
 
   useEffect(() => {
-  
+    
     const fetchData = async () => {
       if (gameData.length === 0) {
+        const response = await getGenres();
+        console.log(response)
         await fetchVideogameData();
       } }
 
@@ -40,7 +43,6 @@ export default function Cards() {
   );
 
   const renderCards = itemsArray[pagePosition - 1];
-  console.log(renderCards)
 
   return (
     <div className="cards_container">
