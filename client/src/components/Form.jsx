@@ -3,6 +3,7 @@ import "../css/form.modules.css";
 import createGame from "../Handlers/createGame";
 
 export default function Form() {
+
   const [newVideogame, SetNewVideogame] = useState({
     name: "",
     description: "",
@@ -27,7 +28,9 @@ export default function Form() {
   };
 
   const handleCheckForm = (event) => {
-    let { name, value } = event.target;
+    console.log(event.target)
+    let { name, value} = event.target;
+    
 
     if (name === "genres") {
       value = Number(value);
@@ -48,6 +51,8 @@ export default function Form() {
         [name]: [...newVideogame[name], value],
       });
     }
+
+    
   };
 
   const handleFile = (event) => {
@@ -64,6 +69,15 @@ export default function Form() {
       });
     }
   };
+
+  const isButtonDisabled =
+  newVideogame.name === "" ||
+  newVideogame.description === "" ||
+  newVideogame.platforms.length === 0 ||
+  newVideogame.background_image === "" ||
+  newVideogame.genres.length === 0 ||
+  newVideogame.released === null ||
+  newVideogame.rating === null;
 
   const handleRestart = () => {
     SetNewVideogame({
@@ -125,6 +139,11 @@ export default function Form() {
                 />
               </div>
             </div>
+            <div className="submit_error">
+              <p>
+              "You must enter a title between 8 and 25 characters."
+              </p>
+            </div>
             <label className="rigth_form_label" for="imageUpload">
               {" "}
               Videogame Description
@@ -141,10 +160,19 @@ export default function Form() {
                   name="description"
                   onChange={handleChange}
                   value={newVideogame.description}
-                ></textarea>
+                  maxLength={250}
+                >
+                </textarea>
               </div>
+              <div className="character-counter">
+    {newVideogame.description.length}/{250}
+  </div>
             </div>
-
+            <div className="submit_error">
+              <p>
+              "You must enter a description between 15 and 250 characters."
+              </p>
+            </div>
             <div className="game_data">
               <div className="game_date">
                 <div className="game_span">
@@ -202,22 +230,22 @@ export default function Form() {
               <div className="check_genres">
                 {[
                   "Action",
-                  "Indie",
                   "RPG",
                   "Adventure",
                   "Strategy",
-                  "Shooter",
+                  "Indie",
                   "Casual",
-                  "Puzzle",
                   "Simulation",
+                  "Puzzle",
+                  "Shooter",
                   "Arcade",
-                  "Platformer",
+                  "Massively Multiplayer",
                   "Racing",
                   "Sports",
-                  "Massively Multiplayer",
+                  "Platformer",
                   "Fighting",
-                  "Family",
                   "Board Games",
+                  "Family",
                   "Educational",
                   "Card",
                 ].map((genre, index) => (
@@ -225,7 +253,7 @@ export default function Form() {
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
-                        className="checkbox"
+                        className="genres"
                         name="genres"
                         value={index + 1}
                         onChange={handleCheckForm}
@@ -256,7 +284,7 @@ export default function Form() {
                     <label className="checkbox-label">
                       <input
                         type="checkbox"
-                        className="checkbox"
+                        className="platform"
                         name="platforms"
                         value={platform}
                         onChange={handleCheckForm}
@@ -290,7 +318,7 @@ export default function Form() {
           <button className="restart_buttons" onClick={handleRestart}>
             Restart
           </button>
-          <button className="create_buttons" onClick={handleCreate}>
+          <button className="create_buttons" onClick={handleCreate} disabled={isButtonDisabled}  >
             Create Videogame
           </button>
         </div>

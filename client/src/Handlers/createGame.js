@@ -9,19 +9,19 @@ const createGame = async (newGame) => {
       { name, description, platforms, background_image,genres,released,rating }
     );
 
+   
+
     const { data } = response;
     let isCreated = false
     
-    if(data.id.length > 0){
+    if(data.id){
         isCreated = true
-    
+        alert("Videogame has been created");
+        return isCreated;
+    }else {
+      return alert(data)
     }
 
-    if (isCreated) {
-      alert("Videogame has been created");
-    }
-
-    return isCreated;
   } catch (error) {
     alert(error.message);
     return false;

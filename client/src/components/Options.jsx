@@ -5,20 +5,25 @@ import { useDispatch, useSelector } from "react-redux";
 import CardOptions from "./CardOptions";
 import putUser from "../Handlers/putUser";
 import { updateUser } from "../redux/actions";
-
-
+import validation from "../utils/validations";
+import optionValidation from "../utils/optionValidations";
 
 export default function Options() {
-  const dispatch = useDispatch()
-  const userData = useSelector((state) => state.userData)
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.userData);
   const [newInfo, setnewInfo] = useState({
-    id:"",
+    id: "",
     updatedEmail: "",
     updatedPassword: "",
     newAvatar: "",
   });
 
-  
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    emailValidation: false,
+    passwordValidation: false,
+  });
 
   const handleFill = (event) => {
     const { name, value } = event.target;
@@ -26,44 +31,50 @@ export default function Options() {
       ...newInfo,
       [name]: value,
     });
+
+    setErrors(
+      optionValidation({
+        ...newInfo,
+        [name]: value,
+      })
+    );
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     setnewInfo({
       ...newInfo,
-      id: userData.id
-    })
-
-  },[])
+      id: userData.id,
+    });
+  }, []);
 
   const handleUpdate = async () => {
+    try {
+      const newUser = await putUser(newInfo);
+      const { email, password, avatar } = newUser;
 
-    try{
+      dispatch(updateUser({ email, password, avatar }));
 
-
-
-      const newUser = await putUser(newInfo)
-      const {email, password, avatar} = newUser
-    
-      dispatch(updateUser({email, password, avatar}))
-     
       setnewInfo({
         ...newInfo,
         updatedEmail: "",
         updatedPassword: "",
         newAvatar: "",
-      })
+      });
 
-      alert("Use has been updated")
-
-    }catch(error){
-      alert(error.message)
+      alert("Use has been updated");
+    } catch (error) {
+      alert(error.message);
     }
-  }
+  };
 
-  const UserGames = userData.DataCopy ? userData.DataCopy.filter(
-    (element) => element.id.length > 10
-  ) : [];
+  const UserGames = userData.DataCopy
+    ? userData.DataCopy.filter((element) => element.id.length > 10)
+    : [];
+
+  const isButtonEnabled =
+    errors.emailValidation === true ||
+    errors.passwordValidation === true ||
+    newInfo.newAvatar !== "";
 
   return (
     <div className="options_container">
@@ -94,6 +105,11 @@ export default function Options() {
                   onChange={handleFill}
                   value={newInfo.updatedEmail}
                 ></input>
+                <div className="submit_error">
+                  <p>
+                    {!errors.email ? "You must enter a email." : errors.email}
+                  </p>
+                </div>
                 <label>New Password:</label>
                 <input
                   type="password"
@@ -102,6 +118,13 @@ export default function Options() {
                   value={newInfo.updatedPassword}
                   onChange={handleFill}
                 ></input>
+                <div className="submit_error">
+                  <p>
+                    {!errors.password
+                      ? "Password must include at least one uppercase letter and one digit."
+                      : errors.password}
+                  </p>
+                </div>
               </div>
 
               <div className="user_settins_avatar">
@@ -192,7 +215,9 @@ export default function Options() {
                 </div>
               </div>
               <div className="user_setting_save">
-                <button onClick={handleUpdate}>Save Settings</button>
+                <button onClick={handleUpdate} disabled={!isButtonEnabled}>
+                  Save Settings{" "}
+                </button>
               </div>
             </div>
           </div>

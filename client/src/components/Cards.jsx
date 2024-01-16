@@ -6,6 +6,16 @@ import { getVideogames } from "../redux/actions";
 import Card from "./Card";
 
 export default function Cards() {
+
+  const fetchVideogameData = async () => {
+    try {
+      const videogamesData = await getGames();
+      dispatch(getVideogames(videogamesData));
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   const [pagePosition, setPagePosition] = useState(1);
   const itemsOnPage = 15;
   const dispatch = useDispatch();
@@ -13,15 +23,12 @@ export default function Cards() {
 
   useEffect(() => {
   
-      const fetchVideogameData = async () => {
-        try {
-          const videogamesData = await getGames();
-          dispatch(getVideogames(videogamesData));
-        } catch (error) {
-          console.error("Error fetching videogames:", error);
-        }
-      };
-      fetchVideogameData();
+    const fetchData = async () => {
+      if (gameData.length === 0) {
+        await fetchVideogameData();
+      } }
+
+    fetchData();
     
   }, [dispatch]);
 
@@ -33,6 +40,7 @@ export default function Cards() {
   );
 
   const renderCards = itemsArray[pagePosition - 1];
+  console.log(renderCards)
 
   return (
     <div className="cards_container">

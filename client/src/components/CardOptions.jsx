@@ -15,17 +15,15 @@ export default function CardOptions(props) {
       
 
           const data = await DeleteGame(id);
-      
-          if(data.status){
 
             dispatch(deleteGame(id))
 
-            alert(data.message)
-          }
+             return alert("Game has been deleted")
+
           
         } catch (error) {
    
-          alert(error.message);
+          return alert(error.message);
         }
       };
 

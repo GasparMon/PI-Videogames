@@ -37,9 +37,9 @@ export default function Submit(props) {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    try{
 
-    console.log("Hola")
+      event.preventDefault();
 
     const isUserCreated = await createUser(submitUser);
 
@@ -49,7 +49,14 @@ export default function Submit(props) {
         email: "",
         password: "",
         avatar: null,
+        
       });
+
+      alert("User has been Created")
+    }
+
+    }catch(error){
+      alert(error.message)
     }
   };
 

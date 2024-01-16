@@ -64,7 +64,7 @@
 
 .settings_container {
   height: 85%;
-  width: 95%;
+  width: 98%;
   padding: 2px 2px 2px 2px;
   display: flex;
   flex-direction: row;
@@ -95,7 +95,7 @@
 }
 
 .user_settings {
-  width: 35%;
+  width: 40%;
 }
 
 .game_settings_title,
@@ -140,11 +140,12 @@
 
 .user_settins_password {
   width: 90%;
-  height: 25%;
+  height: 32%;
   display: flex;
   flex-direction: column;
   align-items: first baseline;
-  justify-content: space-between;
+  justify-content: space-around;
+  
 }
 
 .user_settins_password input {

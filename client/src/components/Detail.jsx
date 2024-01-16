@@ -21,7 +21,7 @@ export default function Detail() {
           setGame(gameData);
         }
       } catch (error) {
-        console.error("Error fetching videogames:", error);
+        return alert (error.message);
       }
     };
     fetchGameInfo();
@@ -29,6 +29,7 @@ export default function Detail() {
 
   const optionalRender = () => {
     if (Object.keys(game).length > 0 && game.id.length > 10) {
+      const backgroundImage = `/img/${game.background_image}`;
       return (
         <>
           <div className="game_detail">
@@ -40,13 +41,11 @@ export default function Detail() {
               <h3>{game.name}</h3>
               </div>
               <div className="detail_img">
-                {game.background_image && (
                   <img
                     className="detail-img"
-                    src={"./img/cover013.jpeg"}
+                    src={backgroundImage}
                     alt={game.background_image}
                   />
-                )}
               </div>
               <div className="detail_rating_custom">
                 <div className="rating">

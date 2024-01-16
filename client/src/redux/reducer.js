@@ -13,11 +13,11 @@ import {
 
 const initialState = {
   userData: {
-    id:"",
+    id: "",
     username: "",
     avatar: "",
-    email:"",
-    password:"",
+    email: "",
+    password: "",
     gameData: [],
     gameFiltered: [],
     DataCopy: [],
@@ -43,8 +43,14 @@ export default function reducer(state = initialState, action) {
         ...state,
         userData: {
           ...state.userData,
+          id: "",
           username: "",
           avatar: "",
+          email: "",
+          password: "",
+          gameData: [],
+          gameFiltered: [],
+          DataCopy: [],
         },
       };
 
@@ -54,7 +60,7 @@ export default function reducer(state = initialState, action) {
         userData: {
           ...state.userData,
           gameData: action.payload,
-          DataCopy:action.payload,
+          DataCopy: action.payload,
         },
       };
 
@@ -68,19 +74,16 @@ export default function reducer(state = initialState, action) {
       };
 
     case ORDERNAME:
-
       let orderCopyName = [];
 
       // if (state.userData.gameFiltered.length === 0) {
-        orderCopyName = [...state.userData.gameData];
-        
-        if (action.payload === "Ascendent") {
-       
-          orderCopyName.sort((a, b) => a.name.localeCompare(b.name));
+      orderCopyName = [...state.userData.gameData];
 
-        } else if (action.payload === "Descendent") {
-          orderCopyName.sort((a, b) => b.name.localeCompare(a.name));
-        }
+      if (action.payload === "Ascendent") {
+        orderCopyName.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (action.payload === "Descendent") {
+        orderCopyName.sort((a, b) => b.name.localeCompare(a.name));
+      }
       // } else {
       //   orderCopyName = [...state.userData.gameFiltered];
 
@@ -99,17 +102,16 @@ export default function reducer(state = initialState, action) {
       };
 
     case ORDERRATING:
-  
       let orderCopyRating = [];
 
       // if (state.userData.gameFiltered.length === 0) {
-        orderCopyRating = [...state.userData.gameData];
-        
-        if (action.payload === "Ascendent") {;
-          orderCopyRating.sort((a, b) => a.rating - b.rating);
-        } else if (action.payload === "Descendent") {
-          orderCopyRating.sort((a, b) => b.rating - a.rating);
-        }
+      orderCopyRating = [...state.userData.gameData];
+
+      if (action.payload === "Ascendent") {
+        orderCopyRating.sort((a, b) => a.rating - b.rating);
+      } else if (action.payload === "Descendent") {
+        orderCopyRating.sort((a, b) => b.rating - a.rating);
+      }
       // } else {
       //   orderCopyRating = [...state.userData.gameFiltered];
 
@@ -127,91 +129,80 @@ export default function reducer(state = initialState, action) {
         },
       };
 
-      case FILTERORIGIN:
+    case FILTERORIGIN:
+      let orderCopyOrigin = [];
 
-      let orderCopyOrigin = []
-     
       if (action.payload === "API") {
-        orderCopyOrigin = state.userData.DataCopy.filter((element) => 
-          typeof element.id === 'number'
+        orderCopyOrigin = state.userData.DataCopy.filter(
+          (element) => typeof element.id === "number"
         );
-
-      } else if (action.payload === "DB"){
-
-        orderCopyOrigin = state.userData.DataCopy.filter((element) => 
-      element.id.length > 10
-      );
-      } else if (action.payload === "All"){
-        orderCopyOrigin = state.userData.DataCopy
+      } else if (action.payload === "DB") {
+        orderCopyOrigin = state.userData.DataCopy.filter(
+          (element) => element.id.length > 10
+        );
+      } else if (action.payload === "All") {
+        orderCopyOrigin = state.userData.DataCopy;
       }
 
-      return{
+      return {
         ...state,
-        userData:{
+        userData: {
           ...state.userData,
           gameData: orderCopyOrigin,
-          gameFiltered:orderCopyOrigin,
+          gameFiltered: orderCopyOrigin,
+        },
+      };
+
+    case FILTERGENRE:
+      let orderCopyGenre = [];
+
+      if (action.payload === "All") {
+        if (state.userData.gameFiltered.length === 0) {
+          orderCopyGenre = state.userData.gameData;
+        } else {
+          orderCopyGenre = state.userData.gameFiltered;
         }
+      } else if (state.userData.gameFiltered.length === 0) {
+        orderCopyGenre = state.userData.DataCopy.filter((element) =>
+          element.Genres.some((genre) => genre.name === action.payload)
+        );
+      } else {
+        orderCopyGenre = state.userData.gameFiltered.filter((element) =>
+          element.Genres.some((genre) => genre.name === action.payload)
+        );
       }
 
-      case FILTERGENRE:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          gameData: orderCopyGenre,
+        },
+      };
 
-  let orderCopyGenre = [];
+    case DELETEGAME:
+      const filteredGames = state.userData.DataCopy.filter(
+        (element) => element.id !== action.payload
+      );
 
-  if (action.payload === "All"){
-    if(state.userData.gameFiltered.length === 0){
-      orderCopyGenre = state.userData.gameData;
-    }else {
-      orderCopyGenre = state.userData.gameFiltered;
-    }
-  }
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          DataCopy: filteredGames,
+        },
+      };
 
-  else if (state.userData.gameFiltered.length === 0) {
-
-    orderCopyGenre = state.userData.DataCopy.filter((element) =>
-      element.Genres.some((genre) => genre.name === action.payload)
-    );
-  } else {
-    orderCopyGenre = state.userData.gameFiltered.filter((element) =>
-      element.Genres.some((genre) => genre.name === action.payload)
-    );
-  }
-
-  
-
-  return {
-    ...state,
-    userData: {
-      ...state.userData,
-      gameData: orderCopyGenre,
-    },
-  };
-
-  case DELETEGAME:
-
-  const filteredGames = state.userData.DataCopy.filter((element)=>
-  element.id !== action.payload
-  )
-
-  return{
-    ...state,
-    userData: {
-      ...state.userData,
-      DataCopy: filteredGames
-    }
-  }
-
-  case UPDATEUSER:
-
-  return {
-    ...state,
-    userData: {
-      ...state.userData,
-      avatar: action.payload.avatar,
-      email: action.payload.email,
-      password: action.payload.password,
-    },
-  };
+    case UPDATEUSER:
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          avatar: action.payload.avatar,
+          email: action.payload.email,
+          password: action.payload.password,
+        },
+      };
 
     default:
       return state;
