@@ -27,7 +27,7 @@ export default function Cards() {
     const fetchData = async () => {
       if (gameData.length === 0) {
         const response = await getGenres();
-        console.log(response)
+        alert(response)
         await fetchVideogameData();
       } }
 
