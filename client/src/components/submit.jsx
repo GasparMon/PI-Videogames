@@ -44,15 +44,10 @@ export default function Submit(props) {
     const isUserCreated = await createUser(submitUser);
 
     if (isUserCreated) {
-      setSubmitUser({
-        username: "",
-        email: "",
-        password: "",
-        avatar: null,
-        
-      });
-
+    
       alert("User has been Created")
+
+      navigate("/");
     }
 
     }catch(error){

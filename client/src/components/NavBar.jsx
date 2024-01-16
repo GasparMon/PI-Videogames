@@ -77,7 +77,9 @@ export default function NavBar(props) {
 
   const handleOrigin = (event) => {
     const { value } = event.target;
-    setSelectedGenre("All");
+    if(value === "All"){
+      setSelectedGenre("All");
+    }
     dispatch(filterOrigin(value));
   };
 

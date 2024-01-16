@@ -40,7 +40,7 @@ const getGames = async (req, res) => {
         },
       });
 
-      dbGames.forEach((element) => allGames.push(element));
+      dbGames.forEach((element) => allGames.unshift(element));
 
       return res.status(200).send(allGames);
     }

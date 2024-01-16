@@ -4,9 +4,11 @@ import createGame from "../Handlers/createGame";
 import { getVideogames } from "../redux/actions";
 import { useDispatch } from "react-redux";
 import getGames from "../Handlers/getGames";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const videogameData = async () => {
     try {
@@ -112,18 +114,8 @@ export default function Form() {
     
 
     if(isGameCreated){
-      SetNewVideogame({
-        ...newVideogame,
-        name: "",
-        description: "",
-        platforms: [],
-        background_image: "",
-        genres: [],
-        released: new Date(),
-        rating: "",
-      });
-
       await videogameData();
+      navigate("/home");
     }
   };
 
