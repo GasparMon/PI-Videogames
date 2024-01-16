@@ -5,9 +5,7 @@ body {
   margin: 0;
   color: white;
   font-family: "Rubik";
-  
 }
-
 
 #root {
   position: relative;
@@ -21,16 +19,13 @@ body {
     ),
     url(./img/back_003.png) repeat;
   font-family: "Rubik";
-  background-size:auto;
+  background-size: auto;
   background-position: center;
-  
 }
 
 button:disabled {
- 
   opacity: 0.5;
   cursor: not-allowed;
-
 }
 
 @media screen and (max-width: 1500px) {
@@ -54,11 +49,9 @@ button:disabled {
     font-size: 14px;
   }
 
-  label{
+  label {
     font-size: 14px;
   }
-
- 
 
   .game_detail span {
     font-size: 60px;
@@ -112,7 +105,7 @@ button:disabled {
     height: 500px;
   }
 
-  .platform_img{
+  .platform_img {
     width: 40px;
     height: 40px;
   }
@@ -121,17 +114,16 @@ button:disabled {
     font-size: 25px;
   }
 
-  .card_genres label{
+  .card_genres label {
     font-size: 17px;
   }
 
-  
-  .genres_div{
+  .genres_div {
     width: 22%;
     height: 17%;
   }
 
-  .platforms_div{
+  .platforms_div {
     width: 30%;
     height: 40%;
   }
@@ -140,36 +132,28 @@ button:disabled {
   .check_genres {
     height: 98%;
     width: 85%;
-
   }
-  
+
   .checkbox-label {
     font-size: 15px;
-
-
   }
   .genres,
-.platform {
+  .platform {
     width: 14px;
     height: 14px;
   }
-
-
 
   .user_setting_save,
   .user_settins_mail,
   .user_settins_name,
   .user_settins_password,
-    .user_settins_avatar{
-      width: 100%;
+  .user_settins_avatar {
+    width: 100%;
   }
   .user_setting_save button,
-  .delete_button{
-
+  .delete_button {
     font-size: 20px;
-}
-  
-
+  }
 }
 
 @media screen and (max-width: 1300px) {
@@ -189,7 +173,7 @@ button:disabled {
     font-size: 12px;
   }
 
-  label{
+  label {
     font-size: 12px;
   }
 
@@ -221,12 +205,11 @@ button:disabled {
     height: 50px;
   }
 
- 
   .detail_container {
     height: 500px;
   }
 
-  .platform_img{
+  .platform_img {
     width: 30px;
     height: 30px;
   }
@@ -235,17 +218,14 @@ button:disabled {
     font-size: 17px;
   }
 
-  
   .checkbox-label {
     font-size: 12px;
-
-
   }
- 
+
   .rigth_form_label {
     font-size: 17px;
   }
-  
+
   .form_info_left label {
     font-size: 17px;
   }
@@ -257,35 +237,28 @@ button:disabled {
 
   .create_buttons {
     font-size: 20px;
-
   }
-  
+
   .restart_buttons {
     font-size: 20px;
   }
 
-  .user_setting_save button{
-    font-size: 20px
+  .user_setting_save button {
+    font-size: 20px;
   }
 
   .radio-tile {
     width: 60px;
     min-height: 60px;
-
   }
 
   .user_setting_save button,
-  .delete_button{
-
+  .delete_button {
     font-size: 15px;
+  }
 }
-
-}
-
-
 
 @media screen and (max-width: 1200px) {
-
   h1 {
     font-size: 35px;
   }
@@ -306,11 +279,11 @@ button:disabled {
     font-size: 11px;
   }
 
-  .card_genres label{
+  .card_genres label {
     font-size: 10px;
   }
 
-  .details_ label{
+  .details_ label {
     font-size: 8px;
   }
 
@@ -320,7 +293,7 @@ button:disabled {
 
   p {
     font-size: 7px;
-  }   
+  }
 
   img {
     width: 70px;
@@ -336,14 +309,14 @@ button:disabled {
     overflow: hidden;
   }
 
-  .game_detail span{
+  .game_detail span {
     font-size: 40px;
   }
 
   .rigth_form_label {
     font-size: 12px;
   }
-  
+
   .form_info_left label {
     font-size: 12px;
   }
@@ -355,14 +328,11 @@ button:disabled {
 
   .create_buttons {
     font-size: 17px;
-
   }
-  
+
   .restart_buttons {
     font-size: 17px;
   }
-
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -404,12 +374,11 @@ button:disabled {
     font-size: 15px;
   }
 
-
   .detail_container {
     height: 400px;
   }
 
-  .card_platform{
+  .card_platform {
     width: 100%;
     height: 1%;
     opacity: 0;
@@ -418,7 +387,7 @@ button:disabled {
   .rigth_form_label {
     font-size: 8px;
   }
-  
+
   .form_info_left label {
     font-size: 8px;
   }
@@ -430,9 +399,8 @@ button:disabled {
 
   .create_buttons {
     font-size: 15px;
-
   }
-  
+
   .restart_buttons {
     font-size: 15px;
   }
@@ -453,7 +421,7 @@ button:disabled {
     width: 95%;
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.991);
   }
-  
+
   .form_info_right {
     height: 95%;
     width: 95%;
@@ -473,7 +441,7 @@ button:disabled {
     width: 80%;
     height: 80%;
   }
-  .user_setting_save button{
+  .user_setting_save button {
     font-size: 20px;
   }
 
@@ -487,16 +455,14 @@ button:disabled {
   }
 
   .user_settings,
-.game_settings {
-  height: 97%;
-  width: 70%;
-}
+  .game_settings {
+    height: 97%;
+    width: 70%;
+  }
 
-.card_option_delete span{
-  font-size: 40px;
-}
- 
-
+  .card_option_delete span {
+    font-size: 40px;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -516,26 +482,23 @@ button:disabled {
     font-size: 8px;
   }
 
-  .card_option_container label{
+  .card_option_container label {
     font-size: 12px;
   }
 
-.card_option_delete span{
-  font-size: 20px;
-}
+  .card_option_delete span {
+    font-size: 20px;
+  }
 
-.user_settings,
-.game_settings {
-  height: 97%;
-  width: 90%;
-}
+  .user_settings,
+  .game_settings {
+    height: 97%;
+    width: 90%;
+  }
 
-.nav_buttons button,
-.nav_logout button,
-.filter_container button
-{
-  font-size: 10px;
-}
- 
-
+  .nav_buttons button,
+  .nav_logout button,
+  .filter_container button {
+    font-size: 10px;
+  }
 }
