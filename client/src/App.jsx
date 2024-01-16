@@ -11,7 +11,7 @@ import Cards from './components/Cards';
 import Detail from './components/Detail';
 import Search from './components/Search';
 import Options from './components/Options';
-
+const url = import.meta.env.VITE_URL_HOST
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
     const { email, password } = userData;
 
     try {
-      const response = await axios.post('http://localhost:3001/mygameroomapp/login',{email, password});
+      const response = await axios.post(`${url}/mygameroomapp/login`,{email, password});
       const{data} = response
     
       if (data.user) {
