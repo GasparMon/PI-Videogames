@@ -1,5 +1,5 @@
 import axios from "axios";
-
+const url = import.meta.env.VITE_URL_HOST
 const putUser = async (newInfo) => {
   try {
     const filteredObject = Object.fromEntries(
@@ -8,7 +8,7 @@ const putUser = async (newInfo) => {
 
       console.log(filteredObject)
     const { data } = await axios.put(
-      `http://localhost:3001/mygameroomapp/videogames/user`,
+      `${url}/mygameroomapp/videogames/user`,
       filteredObject
     );
     return data;

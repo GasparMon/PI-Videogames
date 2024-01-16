@@ -1,9 +1,9 @@
 import axios from "axios";
-
+const url = import.meta.env.VITE_URL_HOST
 const getGameByName = async (name) => {
   try {
     const response = await axios.get(
-      `http://localhost:3001/mygameroomapp/videogames/name?name=${name}`
+      `${url}/mygameroomapp/videogames/name?name=${name}`
     );
 
     const { data } = response;

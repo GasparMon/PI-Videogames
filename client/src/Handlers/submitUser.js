@@ -1,10 +1,10 @@
 import axios from "axios";
-
+const url = import.meta.env.VITE_URL_HOST
 const createUser = async (submitUser) => {
   const { username, email, password, avatar } = submitUser;
   try {
     const response = await axios.post(
-      "http://localhost:3001/mygameroomapp/submit",
+      `${url}/mygameroomapp/submit`,
       { username, email, password, avatar }
     );
 

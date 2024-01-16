@@ -1,12 +1,12 @@
 
 import axios from "axios";
-
+const url = import.meta.env.VITE_URL_HOST
 const DeleteGame= async (id) =>{
 
     try{
 
     const response = await axios.delete(
-        `http://localhost:3001/mygameroomapp/videogames/${id}`
+        `${url}/mygameroomapp/videogames/${id}`
     )
 
     const {data} = response
