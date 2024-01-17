@@ -5,6 +5,7 @@ import { getVideogames } from "../redux/actions";
 import { useDispatch } from "react-redux";
 import getGames from "../Handlers/getGames";
 import { useNavigate } from "react-router-dom";
+import formValidation from "../utils/formValidations";
 
 export default function Form() {
   const dispatch = useDispatch();
@@ -29,6 +30,16 @@ export default function Form() {
     rating: null,
   });
 
+  const [errors, setErrors] = useState({
+    name: "",
+    description: "",
+    nameValidation: false,
+    descriptionValidation: false,
+    platformsValidation: false,
+    genresValidation: false,
+    ratingValidation: false,
+  });
+
   const handleChange = (event) => {
     let { name, value } = event.target;
 
@@ -40,10 +51,16 @@ export default function Form() {
       ...newVideogame,
       [name]: value,
     });
+
+    setErrors(
+      formValidation({
+        ...newVideogame,
+        [name]: value,
+      })
+    );
   };
 
   const handleCheckForm = (event) => {
-    console.log(event.target);
     let { name, value } = event.target;
 
     if (name === "genres") {
@@ -59,11 +76,25 @@ export default function Form() {
         ...newVideogame,
         [name]: filtered,
       });
+
+      setErrors(
+        formValidation({
+          ...newVideogame,
+          [name]: filtered,
+        })
+      );
     } else {
       SetNewVideogame({
         ...newVideogame,
         [name]: [...newVideogame[name], value],
       });
+
+      setErrors(
+        formValidation({
+          ...newVideogame,
+          [name]: value,
+        })
+      );
     }
   };
 
@@ -83,13 +114,12 @@ export default function Form() {
   };
 
   const isButtonDisabled =
-    newVideogame.name === "" ||
-    newVideogame.description === "" ||
-    newVideogame.platforms.length === 0 ||
     newVideogame.background_image === "" ||
-    newVideogame.genres.length === 0 ||
-    newVideogame.released === null ||
-    newVideogame.rating === null;
+    errors.nameValidation === false ||
+    errors.descriptionValidation === false ||
+    errors.platformsValidation === false ||
+    errors.genresValidation === false ||
+    errors.ratingValidation === false;
 
   const handleRestart = () => {
     SetNewVideogame({
@@ -143,7 +173,11 @@ export default function Form() {
               </div>
             </div>
             <div className="submit_error">
-              <p>"You must enter a title between 8 and 25 characters."</p>
+              <p>
+                {!errors.nameValidation
+                  ? "You must enter a title between 8 and 25 characters."
+                  : errors.name}
+              </p>
             </div>
             <label className="rigth_form_label" for="imageUpload">
               {" "}
@@ -170,7 +204,9 @@ export default function Form() {
             </div>
             <div className="submit_error">
               <p>
-                "You must enter a description between 15 and 250 characters."
+                {!errors.descriptionValidation
+                  ? "You must enter a description between 15 and 250 characters."
+                  : errors.description}
               </p>
             </div>
             <div className="game_data">

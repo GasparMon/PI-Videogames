@@ -25,48 +25,47 @@ const getGameByName = async (req, res) => {
         const { results } = data;
 
         filteredGames.rows = filteredGames.rows.concat(
-          results
-            .map(
-              ({
-                id,
-                name,
-                platforms,
-                background_image,
-                genres,
-                released,
-                rating,
-                metacritic,
-              }) => ({
-                id,
-                name,
-                platforms,
-                background_image,
-                Genres: genres,
-                released,
-                rating,
-                metacritic,
-              })
-            )
-            // .filter(
-            //   ({
-            //     id,
-            //     name,
-            //     platforms,
-            //     background_image,
-            //     Genres,
-            //     released,
-            //     rating,
-            //     metacritic,
-            //   }) =>
-            //     id !== null &&
-            //     name !== null &&
-            //     platforms.length !== 0 &&
-            //     background_image !== null &&
-            //     Genres.length !== 0 &&
-            //     released !== null &&
-            //     rating > 1 &&
-            //     metacritic !== null
-            // )
+          results.map(
+            ({
+              id,
+              name,
+              platforms,
+              background_image,
+              genres,
+              released,
+              rating,
+              metacritic,
+            }) => ({
+              id,
+              name,
+              platforms,
+              background_image,
+              Genres: genres,
+              released,
+              rating,
+              metacritic,
+            })
+          )
+          // .filter(
+          //   ({
+          //     id,
+          //     name,
+          //     platforms,
+          //     background_image,
+          //     Genres,
+          //     released,
+          //     rating,
+          //     metacritic,
+          //   }) =>
+          //     id !== null &&
+          //     name !== null &&
+          //     platforms.length !== 0 &&
+          //     background_image !== null &&
+          //     Genres.length !== 0 &&
+          //     released !== null &&
+          //     rating > 1 &&
+          //     metacritic !== null
+          // )
         );
       }
     }
@@ -83,7 +82,6 @@ const getGameByName = async (req, res) => {
 
     return res.status(200).json(gamesbyName);
   } catch (error) {
-    
     return res.status(500).send("Internal Server Error");
   }
 };

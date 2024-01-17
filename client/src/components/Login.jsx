@@ -3,9 +3,8 @@ import "../css/login.modules.css";
 import { useState } from "react";
 import validation from "../utils/validations";
 
-
 export default function Login(props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { logIn } = props;
 
   const [userData, setUserData] = useState({
@@ -16,9 +15,9 @@ export default function Login(props) {
   const [errors, setErrors] = useState({
     email: "",
     password: "",
-    emailValidation:false,
-    passwordValidation:false,
-  })
+    emailValidation: false,
+    passwordValidation: false,
+  });
 
   const handleFill = (event) => {
     const { name, value } = event.target;
@@ -28,12 +27,12 @@ export default function Login(props) {
       [name]: value,
     });
 
-    setErrors(validation(
-      {
+    setErrors(
+      validation({
         ...userData,
-        [name] : value,
-      }
-    ))
+        [name]: value,
+      })
+    );
   };
 
   const hadleSubmit = (event) => {
@@ -85,7 +84,10 @@ export default function Login(props) {
               >
                 Login
               </button>
-              <button className="signin_button" onClick={()=>navigate("/submit")}>
+              <button
+                className="signin_button"
+                onClick={() => navigate("/submit")}
+              >
                 Sign In
               </button>
             </div>

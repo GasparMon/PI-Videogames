@@ -1,4 +1,4 @@
-const { Videogame} = require("../db");
+const { Videogame } = require("../db");
 
 const postGame = async (req, res) => {
   try {
@@ -8,15 +8,15 @@ const postGame = async (req, res) => {
       platforms,
       background_image,
       // short_screenshots,
-      genres, 
+      genres,
       released,
       rating,
       UserId,
     } = req.body;
 
-    const game = await Videogame.findOne({ where: {name}})
+    const game = await Videogame.findOne({ where: { name } });
 
-    if(game === null){
+    if (game === null) {
       const newGame = await Videogame.create({
         name,
         description,
@@ -28,17 +28,15 @@ const postGame = async (req, res) => {
         rating,
         UserId,
       });
-  
-      await newGame.addGenres(genres);
-      return res.status(200).json(newGame);
-  
-    }else {
 
-      return res.status(200).send("Videogame Title is already in your List")
+      await newGame.addGenres(genres);
+      
+      return res.status(200).json(newGame);
+    } else {
+      return res.status(200).send("Videogame Title is already in your List");
     }
-    
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    return res.status(500).json({ error: error.message });
   }
 };
 

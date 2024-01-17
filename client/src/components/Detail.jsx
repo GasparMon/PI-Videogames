@@ -21,7 +21,7 @@ export default function Detail() {
           setGame(gameData);
         }
       } catch (error) {
-        return alert (error.message);
+        return alert(error.message);
       }
     };
     fetchGameInfo();
@@ -33,26 +33,26 @@ export default function Detail() {
       return (
         <>
           <div className="game_detail">
-              <span class="material-symbols-outlined" onClick={goBack}>
-                widgets
-              </span>
+            <span class="material-symbols-outlined" onClick={goBack}>
+              widgets
+            </span>
             <div className="detail_left">
               <div className="detail_title">
-              <h3>{game.name}</h3>
+                <h3>{game.name}</h3>
               </div>
               <div className="detail_img">
-                  <img
-                    className="detail-img"
-                    src={backgroundImage}
-                    alt={game.background_image}
-                  />
+                <img
+                  className="detail-img"
+                  src={backgroundImage}
+                  alt={game.background_image}
+                />
               </div>
               <div className="detail_rating_custom">
                 <div className="rating">
                   <span class="material-symbols-outlined">trending_up</span>
                 </div>
                 <div className="rating">
-                <h2>{game.rating}</h2>
+                  <h2>{game.rating}</h2>
                 </div>
               </div>
               <div className="details_">
@@ -77,7 +77,7 @@ export default function Detail() {
                   ))}
               </div>
               <div className="detail_date">
-              <h3>Realeased Date: {game.released}</h3>
+                <h3>Realeased Date: {game.released}</h3>
               </div>
             </div>
           </div>
@@ -87,14 +87,13 @@ export default function Detail() {
       return (
         <>
           <div className="game_detail">
-            
-              <span class="material-symbols-outlined" onClick={goBack}>
-                widgets
-              </span>
-         
+            <span class="material-symbols-outlined" onClick={goBack}>
+              widgets
+            </span>
+
             <div className="detail_left">
               <div className="detail_title">
-              <h3>{game.name}</h3>
+                <h3>{game.name}</h3>
               </div>
               <div className="detail_img">
                 {game.background_image && (
@@ -226,9 +225,5 @@ export default function Detail() {
     }
   };
 
-  return <div className="detail_container">
-  
-    {optionalRender()}
-  
-  </div>;
+  return <div className="detail_container">{optionalRender()}</div>;
 }

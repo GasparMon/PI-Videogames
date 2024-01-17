@@ -13,8 +13,7 @@ const getGames = async (req, res) => {
       const { data } = await axios.get(`${URL}?${apiKey}&page=${idPage}`);
 
       if (data.results) {
-        data.results.forEach((element) => GamesDB.push(element))
-       
+        data.results.forEach((element) => GamesDB.push(element));
       }
 
       idPage++;
@@ -35,8 +34,8 @@ const getGames = async (req, res) => {
       const dbGames = await Videogame.findAll({
         include: {
           model: Genres,
-          attributes: ['name'],
-          through: { attributes: [] }
+          attributes: ["name"],
+          through: { attributes: [] },
         },
       });
 
@@ -46,9 +45,7 @@ const getGames = async (req, res) => {
     }
 
     return res.status(400).send(`Error to get data from ${URL}`);
-
   } catch (error) {
-    
     return res.status(500).send("Internal Server Error");
   }
 };

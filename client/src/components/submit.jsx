@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../css/submit.modules.css";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import createUser from "../Handlers/submitUser";
 import validation from "../utils/validations";
 
@@ -16,9 +16,9 @@ export default function Submit(props) {
   const [errors, setErrors] = useState({
     email: "",
     password: "",
-    emailValidation:false,
-    passwordValidation:false,
-  })
+    emailValidation: false,
+    passwordValidation: false,
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,30 +28,27 @@ export default function Submit(props) {
       [name]: value,
     });
 
-    setErrors(validation(
-      {
+    setErrors(
+      validation({
         ...submitUser,
-        [name] : value,
-      }
-    ))
+        [name]: value,
+      })
+    );
   };
 
   const handleSubmit = async (event) => {
-    try{
-
+    try {
       event.preventDefault();
 
-    const isUserCreated = await createUser(submitUser);
+      const isUserCreated = await createUser(submitUser);
 
-    if (isUserCreated) {
-    
-      alert("User has been Created")
+      if (isUserCreated) {
+        alert("User has been Created");
 
-      navigate("/");
-    }
-
-    }catch(error){
-      alert(error.message)
+        navigate("/");
+      }
+    } catch (error) {
+      alert(error.message);
     }
   };
 
@@ -88,15 +85,9 @@ export default function Submit(props) {
                 onChange={handleChange}
                 value={submitUser.email}
               />
-
             </div>
             <div className="submit_error">
-              <p>
-              {!errors.email
-                ?"You must enter a email."
-                : errors.email
-              }
-              </p>
+              <p>{!errors.email ? "You must enter a email." : errors.email}</p>
             </div>
             <div className="submit_password">
               <h3>Password </h3>
@@ -111,9 +102,8 @@ export default function Submit(props) {
             <div className="submit_error">
               <p>
                 {!errors.password
-                ?"Password must include at least one uppercase letter and one digit."
-                : errors.password
-              }
+                  ? "Password must include at least one uppercase letter and one digit."
+                  : errors.password}
               </p>
             </div>
             <h3>Avatar </h3>
@@ -208,17 +198,20 @@ export default function Submit(props) {
             </div>
 
             <div className="submit_buttons">
-              <button 
-              className="submit_button" 
-              onClick={handleSubmit}
-              disabled={!errors.emailValidation || !errors.passwordValidation || !submitUser.username || !submitUser.avatar}
+              <button
+                className="submit_button"
+                onClick={handleSubmit}
+                disabled={
+                  !errors.emailValidation ||
+                  !errors.passwordValidation ||
+                  !submitUser.username ||
+                  !submitUser.avatar
+                }
               >
                 Submit
               </button>
-              <button className="back_button" onClick={()=> navigate("/")}>
-            
-                  Go back
-              
+              <button className="back_button" onClick={() => navigate("/")}>
+                Go back
               </button>
             </div>
           </div>

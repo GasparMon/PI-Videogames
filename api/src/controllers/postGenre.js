@@ -14,6 +14,7 @@ const postGenre = async () => {
       const { data } = await axios.get(`${URL}?${apiKey}`);
 
       if (data) {
+
         const { results } = data;
 
         const promises = results.map(async (element) => {
@@ -31,8 +32,8 @@ const postGenre = async () => {
         return "Genres has been created";
       }
     }
-
     return "Genres already exist";
+    
   } catch (error) {
     throw new Error(error.message);
   }

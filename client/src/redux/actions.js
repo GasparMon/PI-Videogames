@@ -73,11 +73,9 @@ export function deleteGame(id) {
   };
 }
 
-export function updateUser(newUser){
-
-    
-    return{
-        type: UPDATEUSER,
-        payload: newUser,
-    }
+export function updateUser(newUser) {
+  return {
+    type: UPDATEUSER,
+    payload: newUser,
+  };
 }

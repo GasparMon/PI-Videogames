@@ -20,8 +20,7 @@ export default function Search() {
           />
         ))}
       </div>
-      <div className="pages_div">
-      </div>
+      <div className="pages_div"></div>
     </div>
   );
 }
