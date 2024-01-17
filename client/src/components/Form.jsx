@@ -43,9 +43,8 @@ export default function Form() {
   };
 
   const handleCheckForm = (event) => {
-    console.log(event.target)
-    let { name, value} = event.target;
-    
+    console.log(event.target);
+    let { name, value } = event.target;
 
     if (name === "genres") {
       value = Number(value);
@@ -66,18 +65,16 @@ export default function Form() {
         [name]: [...newVideogame[name], value],
       });
     }
-
-    
   };
 
   const handleFile = (event) => {
     const { files } = event.target;
-  
+
     if (files.length > 0) {
       const fileName = files[0].name;
-  
-      const finalName = fileName.replace(/^C:\\fakepath\\/, '');
-  
+
+      const finalName = fileName.replace(/^C:\\fakepath\\/, "");
+
       SetNewVideogame({
         ...newVideogame,
         background_image: finalName,
@@ -86,13 +83,13 @@ export default function Form() {
   };
 
   const isButtonDisabled =
-  newVideogame.name === "" ||
-  newVideogame.description === "" ||
-  newVideogame.platforms.length === 0 ||
-  newVideogame.background_image === "" ||
-  newVideogame.genres.length === 0 ||
-  newVideogame.released === null ||
-  newVideogame.rating === null;
+    newVideogame.name === "" ||
+    newVideogame.description === "" ||
+    newVideogame.platforms.length === 0 ||
+    newVideogame.background_image === "" ||
+    newVideogame.genres.length === 0 ||
+    newVideogame.released === null ||
+    newVideogame.rating === null;
 
   const handleRestart = () => {
     SetNewVideogame({
@@ -111,9 +108,8 @@ export default function Form() {
     event.preventDefault();
 
     const isGameCreated = await createGame(newVideogame);
-    
 
-    if(isGameCreated){
+    if (isGameCreated) {
       await videogameData();
       navigate("/home");
     }
@@ -147,9 +143,7 @@ export default function Form() {
               </div>
             </div>
             <div className="submit_error">
-              <p>
-              "You must enter a title between 8 and 25 characters."
-              </p>
+              <p>"You must enter a title between 8 and 25 characters."</p>
             </div>
             <label className="rigth_form_label" for="imageUpload">
               {" "}
@@ -168,16 +162,15 @@ export default function Form() {
                   onChange={handleChange}
                   value={newVideogame.description}
                   maxLength={250}
-                >
-                </textarea>
+                ></textarea>
               </div>
               <div className="character-counter">
-    {newVideogame.description.length}/{250}
-  </div>
+                {newVideogame.description.length}/{250}
+              </div>
             </div>
             <div className="submit_error">
               <p>
-              "You must enter a description between 15 and 250 characters."
+                "You must enter a description between 15 and 250 characters."
               </p>
             </div>
             <div className="game_data">
@@ -209,8 +202,8 @@ export default function Form() {
                     onChange={handleChange}
                   >
                     <option disabled selected value="">
-            Select Rating
-          </option>
+                      Select Rating
+                    </option>
                     <option value="1">Rating: 1</option>
                     <option value="1.5">Rating: 1.5</option>
                     <option value="2">Rating: 2</option>
@@ -219,7 +212,7 @@ export default function Form() {
                     <option value="3.5">Rating: 3.5</option>
                     <option value="4">Rating: 4</option>
                     <option value="4.5">Rating: 4.5</option>
-                    <option value="5.5">Rating: 5</option>
+                    <option value="5">Rating: 5</option>
                   </select>
                 </div>
               </div>
@@ -303,11 +296,10 @@ export default function Form() {
               </div>
             </div>
             <div className="vid_img">
-            <label className="rigth_form_label" for="imageUpload">
-                  Videogame image
-                </label>
+              <label className="rigth_form_label" for="imageUpload">
+                Videogame image
+              </label>
               <form>
-               
                 <input
                   className="input_img"
                   type="file"
@@ -321,11 +313,14 @@ export default function Form() {
         </div>
 
         <div className="form_buttons">
-
           <button className="restart_buttons" onClick={handleRestart}>
             Restart
           </button>
-          <button className="create_buttons" onClick={handleCreate} disabled={isButtonDisabled}  >
+          <button
+            className="create_buttons"
+            onClick={handleCreate}
+            disabled={isButtonDisabled}
+          >
             Create Videogame
           </button>
         </div>
