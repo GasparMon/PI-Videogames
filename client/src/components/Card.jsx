@@ -3,6 +3,7 @@ import "../css/card.modules.css";
 import { Link } from "react-router-dom";
 
 export default function Card(props) {
+  console.log(props.rating)
   const optionalRender = () => {
     if (props.id.length > 10) {
       return (
@@ -49,6 +50,9 @@ export default function Card(props) {
                 return null;
               }
             })}
+          </div>
+          <div>
+            Rating: {props.rating}
           </div>
         </>
       );
@@ -102,6 +106,10 @@ export default function Card(props) {
               }
             })}
           </div>
+          <div>
+            Rating: {props.rating}
+          </div>
+
         </>
       );
     }
