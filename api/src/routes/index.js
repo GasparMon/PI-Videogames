@@ -8,10 +8,12 @@ const postUser = require('../controllers/postUser');
 const getUser = require('../controllers/getUser');
 const deleteGame = require('../controllers/deleteGame');
 const putUser = require('../controllers/putUser');
+const getConnection = require('../controllers/getConnection');
 
 
 const router = require('express').Router();
 
+router.get("/connection", getConnection);
 router.get("/videogames/name", getGameByName);
 router.get("/videogames/:idVideogame", getGameById);
 router.get("/videogames", getGames);

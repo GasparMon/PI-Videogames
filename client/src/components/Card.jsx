@@ -51,9 +51,6 @@ export default function Card(props) {
               }
             })}
           </div>
-          <div>
-            Rating: {props.rating}
-          </div>
         </>
       );
     } else {
